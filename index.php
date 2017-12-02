@@ -18,8 +18,42 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
+	<script src="sss.min.js"></script>
+	<script>jQuery(function($) {$('.slider').sss();});</script>
 <!--category & picture-->
-	
+	<div class="full_page">
+		<div class="recent_update">
+			<h3>Recent Update</h3>
+			<div class="clear"></div>
+			<div class="post_box">
+				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
+				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
+				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
+			</div>
+			<div class="post_box">
+				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
+				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
+				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
+			</div>
+			<div class="post_box">
+				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
+				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
+				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="slider">
+			<img src="img/bannerdesigning.jpg" />
+			<img src="img/bannerdesigning.jpg" />
+			<div class="just_text">This one's just text.</div>
+			<img src="img/bannerdesigning.jpg" />
+			<div>
+				<img src="img/bannerdesigning.jpg" />
+				<span class="caption">This one has a caption</span>
+			</div>
+		</div>
+	</div>
 
 <?php
 	echo $layout_footer->output();
