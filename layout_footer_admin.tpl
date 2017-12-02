@@ -17,8 +17,8 @@
 					<td>
 						<h4>Admin</h4>
 						<ul>
-							<li><a href="login.php">Login</a></li>
-							<li><a href="login.php">Admin page</a></li>
+							<li><a href="admin.php">Admin page</a></li>
+							<li><a href="logout.php">Logout</a></li>
 						</ul>
 					</td>
 					<td>

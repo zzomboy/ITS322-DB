@@ -12,13 +12,8 @@
 		<div class="header">
 <!--Logo-->
 			<div class="logo">
-				<a href="index.php"><img src="img/DLZ.png" width="200px" height="92px"></a>
-			</div>
-			<div class="header_nav">
-				<ul>
-					<li><a href="register.php">Register</a></li>
-					<li><a href="login.php">Login</a></li>
-				</ul>
+<!-- ************************* banner ************************* -->
+				<a href="index.php"><img src="img/bannerdesigning.jpg" width="100%"></a>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -28,16 +23,15 @@
 	     	<div class="menu">
 	     		<ul>
 			    	<li [@menu_home]><a href="index.php">Home</a></li>
-			    	<li [@menu_promo]><a href="promotion.php">Promotion</a></li>
-			    	<li [@menu_product]><a href="product.php">Product</a></li>
-			    	<li [@menu_price]><a href="pricelist.php">Pricelist</a></li>
+			    	<li [@menu_article]><a href="article.php">Article</a></li>
+			    	<li [@menu_activity]><a href="activity.php">Activity</a></li>
 			    	<li [@menu_about]><a href="about.php">About</a></li>
 			    	<li [@menu_contact]><a href="contact.php">Contact us</a></li>
 			    	<div class="clear"></div>
      			</ul>
 	     	</div>
 	     	<div class="search_box">
-	     		<form method="get" action="pro_search.php">
+	     		<form method="get" action="search.php">
 	     			<input type="text" placeholder="Search product" name="searchword">
 	     			<input type="submit" value="">
 			     </form>
