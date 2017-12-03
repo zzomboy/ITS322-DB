@@ -36,23 +36,61 @@
 			<div class="post_box">
 				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
 				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
+				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wra</p>
 			</div>
 		</div>
 		<div class="clear"></div>
 
-		<div class="slider">
-			<img src="img/bannerdesigning.jpg" />
-			<img src="img/bannerdesigning.jpg" />
-			<div class="just_text">This one's just text.</div>
-			<img src="img/bannerdesigning.jpg" />
-			<div>
-				<img src="img/bannerdesigning.jpg" />
-				<span class="caption">This one has a caption</span>
+<!-- ********************** slider ********************** -->
+		<div class="w3-content w3-display-container" style="width: 87.5%;height: 400px !important;overflow: hidden;display:flex;justify-content: center;align-items: center;">
+			<div class="w3-display-container mySlides" style="text-align: center;">
+				<img src="img/img_lights.jpg">
+				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+	<!-- ********************** topic ********************** -->
+					Trolltunga, Norway
+				</div>
 			</div>
-		</div>
-	</div>
+			
+			<div class="w3-display-container mySlides" style="text-align: center;">
+				<img src="img/img_mountains.jpg">
+				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+	<!-- ********************** topic ********************** -->
+					Beautiful Mountains
+				</div>
+			</div>
 
+			<div class="w3-display-container mySlides" style="text-align: center;">
+				<img src="img/bannerdesigning.jpg">
+				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+	<!-- ********************** topic ********************** -->
+					banner designing
+				</div>
+			</div>
+			<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+			<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+		</div>
+<!-- ********************** /slider ********************** -->
+
+	</div>
+	<script>
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}    
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		     x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
 <?php
 	echo $layout_footer->output();
 ?>

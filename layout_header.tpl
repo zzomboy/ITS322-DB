@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>[@title]</title>
+		<link href="css/w3.css" rel="stylesheet" type="text/css">
 		<link href="css/reset.css" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 		<script src="jquery.min.js"></script>
