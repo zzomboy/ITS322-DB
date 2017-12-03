@@ -13,13 +13,25 @@
 		$layout_footer = new Template("layout_footer_admin.tpl");
 		$adminname = $_SESSION['adminname'];
 	}
-	$layout_header->set('menu_home','class="active"');
-	$layout_header->set('title','Global warming website');
+	$layout_header->set('menu_contact','class="active"');
+	$layout_header->set('title','Contact us : Global warming website');
 	echo $layout_header->output();
 ?>
 <!--Content-->
 <!--category & picture-->
-	
+	<div class="login_form">
+		<h2>Enter your name and E-mail</h2>
+		<form method="post" action="keepsession.php">
+			<div class="clearfix">
+				<input type="text" placeholder="Name" name="uname" required>
+				<br>
+				<input type="text" placeholder="E-mail" name="uemail" required>
+				<br>
+				<button type="submit" class="submitbt">Submit</button>	
+			</div>	
+		</form>	
+	</div>
+	<div class="clear"></div>
 <?php
 	echo $layout_footer->output();
 ?>
