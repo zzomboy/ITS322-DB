@@ -18,8 +18,6 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
-	<script src="sss.min.js"></script>
-	<script>jQuery(function($) {$('.slider').sss();});</script>
 <!--category & picture-->
 	<div class="full_page">
 		<div class="recent_update">
