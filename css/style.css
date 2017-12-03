@@ -143,6 +143,86 @@ body {
 	max-height: 400px;
 }
 
+/************************* article *************************/
+.recent_update hr{
+	border: 2px solid #EDEDED;
+	margin-bottom: 2.2em;
+}
+.recent_update h5{
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: 1em;
+}
+.all_article{
+	width: 87.5%;
+	margin: auto;
+}
+.all_article h3{
+	font-size: 22px;
+}
+
+.list_article{
+	width: 100%;
+	margin-top: 20px;
+	line-height: 1.2;
+	max-height: 200px;
+	padding-bottom: 30px;
+	border-bottom: 0.8px solid #D3D6D8;
+}
+.list_article img{
+	max-height: 130px;
+	float: left;
+	margin-right: 20px;
+}
+.list_article h4{
+	margin-bottom: 10px;
+}
+.list_article p{
+	color: #8E959C;
+	font-size: 15px;
+	text-overflow: ellipsis;
+	word-wrap:break-word;
+	overflow: hidden;
+	max-height: 72px;
+}
+.list_article a{
+	color: #414E59;
+}
+.list_article a:hover{
+	color: #427F08;
+}
+.list_article h5{
+	margin-top: 7px;
+	font-size: 13px;
+	color: #515D67;
+}
+
+.pre_next_bt{
+	margin-top: 10px;
+	float: right;
+}
+.pre_next_bt a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+.pre_next_bt .next:hover {
+    background-color: #427F08;
+    color: #fff;
+}
+.pre_next_bt .previous {
+    background-color: #EDEDED;
+    color: black;
+}
+.pre_next_bt .previous:hover {
+    background-color: #427F08;
+    color: #fff;
+}
+.pre_next_bt .next {
+    background-color: #4CAF50;
+    color: white;
+}
+
 /************************* about us *************************/
 .about_text h3{
 	color:#4F4F4F;

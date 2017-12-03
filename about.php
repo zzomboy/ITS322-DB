@@ -2,26 +2,19 @@
 	session_start();
 	require_once('connect.php');
 	include("template.class.php");
-	if(!isset($_SESSION['username']))
+	if(!isset($_SESSION['adminname']))
 	{
 		$user_login = false;
 		$layout_header = new Template("layout_header.tpl");
 		$layout_footer = new Template("layout_footer.tpl");
 	}
 	else{
-		$user_login = true;
-		if($_SESSION['type'] == 'admin'){
-			$layout_header = new Template("layout_login_header_admin.tpl");
-			$layout_footer = new Template("layout_login_footer_admin.tpl");
-		}
-		else{
-			$layout_header = new Template("layout_login_header.tpl");
-			$layout_footer = new Template("layout_login_footer.tpl");
-		}
+		$layout_header = new Template("layout_header.tpl");
+		$layout_footer = new Template("layout_footer_admin.tpl");
+		$adminname = $_SESSION['adminname'];
 	}
-	$layout_header->set('title','My account : IT Online Shopping website');
 	$layout_header->set('menu_about','class="active"');
-	$layout_header->set('title','IT Online Shopping website');
+	$layout_header->set('title','About : Global warming website');
 	echo $layout_header->output();
 ?>
 <!--Content-->
