@@ -24,18 +24,18 @@
 			<h3>Recent Update</h3>
 			<div class="clear"></div>
 			<div class="post_box">
-				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
+				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
+				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
 				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
 			</div>
 			<div class="post_box">
-				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
+				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
+				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
 				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
 			</div>
 			<div class="post_box">
-				<h6><a href="article_read.php"><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php">ewryt6rujhgvbgkfyui</a></h4>
+				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
+				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
 				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wra</p>
 			</div>
 		</div>
