@@ -114,7 +114,7 @@ body {
 	text-overflow: ellipsis;
 	word-wrap:break-word;
 	overflow: hidden;
-	max-height: 300px;
+	max-height: 305px;
 }
 .post_box h6{
 	text-align: center;
@@ -250,6 +250,79 @@ body {
 .article_txt p{
 	margin-bottom: 14px;
 	line-height: 1.2;
+}
+.article_slider{
+	margin-bottom: 40px;
+}
+
+.post_comment{
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.post_comment input{
+	color:#4F4F4F;
+	font-size: 16px;
+    width: 300px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    border-radius: 4px;
+}
+.post_comment .submitbt{
+	margin-top: 5px;
+	width: 100px;
+	padding: 10px 0;
+	background-color: #427F08;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+}
+.post_comment .submitbt:hover {
+	background-color: #4CAF50;
+	cursor: pointer;
+}
+.post_comment textarea{
+	color:#4F4F4F;
+	font-size: 16px;
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    border-radius: 4px;
+}
+.comment_section hr{
+	border: 1px solid #CFCFCF;
+	margin-bottom: 20px;
+}
+.comment_section h2{
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+.comment_txt h3{
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.comment_txt p{
+	margin-bottom: 10px;
+	line-height: 1.2;
+}
+.comment_txt h6{
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+.comment_txt hr{
+	border: 0.5px solid #CFCFCF;
+	margin-bottom: 20px;
+}
+.admin_comment h3{
+	color: GREEN;
 }
 
 /************************* about us *************************/
