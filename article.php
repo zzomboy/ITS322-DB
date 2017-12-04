@@ -25,57 +25,78 @@
 			<hr>
 			<div class="clear"></div>
 			<h5>Popular article</h5>
+<?php
+			$q = "select * from article order by visitor_art desc limit 3";
+			$result = $mysqli -> query($q);
+			if(!$result){
+				echo "Error on : $q";
+			}
+			while ($row=$result->fetch_array()) {
+?>
 			<div class="post_box">
-				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
+				<h6><a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'><img src="img/article/<?php $arr = explode("?#",$row['article_imgs']);echo $arr[0]; ?>"></a></h6>
+				<h4><a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'><?php echo $row['article_name']; ?></a></h4>
+				<p><?php echo $row['article_text']; ?></p>
 			</div>
-			<div class="post_box">
-				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
-			</div>
-			<div class="post_box">
-				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wra</p>
-			</div>
+<?php
+			}
+?>			
 		</div>
 		<div class="clear"></div>
 		<div class="all_article">
 			<h3>All article</h3>
-
+<?php
+			if (!isset($_GET['page']) || $_GET['page']==1) {
+				$offset = 0;
+				$limitpage = 4;
+			}
+			else{
+				$offset = $_GET['page']*4-4;
+				$limitpage = $offset.",4";
+			}
+			$q = "select * from article order by article_time desc limit $limitpage";
+			$result = $mysqli -> query($q);
+			while ($row=$result->fetch_array()) {
+?>
 			<div class="list_article">
-				<a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
+				<a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'><img src="img/article/<?php $arr = explode("?#",$row['article_imgs']);echo $arr[0]; ?>"></a>
+				<h4><a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'><?php echo $row['article_name']; ?></a></h4>
+				<p><?php echo $row['article_text']; ?></p>
+				<h5><?php echo $row['article_time']; ?></h5>
 			</div>
-
-			<div class="list_article">
-				<a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
-			</div>
-
-			<div class="list_article">
-				<a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
-			</div>
-
-			<div class="list_article">
-				<a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
-			</div>
+<?php
+			}
+?>	
 		<!-- *************** previous next button *************** -->
 			<div class="pre_next_bt">
-				<a href="#" class="previous">&laquo; Previous</a>
-				<a href="#" class="next">Next &raquo;</a>
+<?php
+			if(!isset($_GET['page']) || $_GET['page']==1){
+				$q = "select * from article order by article_time desc limit ".($offset+4).",4";
+				$result = $mysqli -> query($q);
+				if(!$result)
+					echo "Error on : $q";
+				$numR = $result->num_rows;
+				if($numR!=0){
+?>	
+				<a href="article.php?page=2" class="next">Next &raquo;</a>
+<?php
+				}
+			}else{
+?>	
+				<a href="article.php?page=<?php echo $_GET['page']-1; ?>" class="previous">&laquo; Previous</a>
+<?php
+				$q = "select * from article order by article_time desc limit ".($offset+4).",4";
+				$result = $mysqli -> query($q);
+				if(!$result)
+					echo "Error on : $q";
+				$numR = $result->num_rows;
+				if($numR!=0){
+?>					
+				<a href="article.php?page=<?php echo $_GET['page']+1; ?>" class="next">Next &raquo;</a>
+<?php
+				}
+			}
+?>	
 			</div>	
 			<div class="clear"></div>		
 		</div>		
