@@ -13,57 +13,120 @@
 		$layout_footer = new Template("layout_footer_admin.tpl");
 		$adminname = $_SESSION['adminname'];
 	}
-	$layout_header->set('menu_home','class="active"');
+	$layout_header->set('menu_article','class="active"');
 	$layout_header->set('title','Global warming website');
 	echo $layout_header->output();
+	if (isset($_GET['art'])){
 ?>
 <!--Content-->
 <!--category & picture-->
 	<div class="page_80">
 		<div class="article_txt">
+<?php
+		$sql = "UPDATE article SET visitor_art = visitor_art+1 WHERE article_id = ".$_GET['art'];
+		$mysqli->query($sql) or die("error=$sql");
 
-			<h2>What Is Global Warming?</h2> 
-			<h6>By National GeoGraphic</h6>
-			<p>Glaciers are melting, sea levels are rising, cloud forests are dying, and wildlife is scrambling to keep pace. It's becoming clear that humans have caused most of the past century's warming by releasing heat-trapping gases as we power our modern lives. Called greenhouse gases, their levels are higher now than in the last 650,000 years.</p>
-			<p>We call the result global warming, but it is causing a set of changes to the Earth's climate, or long-term weather patterns, that varies from place to place. As the Earth spins each day, the new heat swirls with it, picking up moisture over the oceans, rising here, settling there. It's changing the rhythms of climate that all living things have come to rely upon.</p>
-			<p>What will we do to slow this warming? How will we cope with the changes we've already set into motion? While we struggle to figure it all out, the face of the Earth as we know it—coasts, forests, farms and snow-capped mountains—hangs in the balance.</p>
-			<p>Greenhouse effect</p>
-			<p>The "greenhouse effect" is the warming that happens when certain gases in Earth's atmosphere trap heat. These gases let in light but keep heat from escaping, like the glass walls of a greenhouse.</p>
-			<p>First, sunlight shines onto the Earth's surface, where it is absorbed and then radiates back into the atmosphere as heat. In the atmosphere, “greenhouse” gases trap some of this heat, and the rest escapes into space. The more greenhouse gases are in the atmosphere, the more heat gets trapped.</p>
+		$q = "select * from article as a , tags as t where a.tag_id = t.tag_id and a.article_id = ".$_GET['art'];
+		$result = $mysqli -> query($q);
+		if(!$result){
+			echo "Error on : $q";
+		}else{
+		$row=$result->fetch_array();
+?>
+			<h2><?php echo $row['article_name']; ?></h2> 
+			<h6>By <?php echo $row['art_author']; ?></h6>
+<?php 
+			$arr_txt = explode(PHP_EOL, $row['article_text']); 
+			foreach ($arr_txt as $value){
+				echo "<p>".$value."</p>";
+			}
+?>
+			<p>Tag : <?php echo $row['tag_name']; ?></p>
 		</div>
 
 		<div class="clear"></div>
 <!-- ********************** slider ********************** -->
-		<div class="w3-content w3-display-container" style="width: 87.5%;height: 400px !important;overflow: hidden;display:flex;justify-content: center;align-items: center;">
-			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/img_lights.jpg">
-				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-	<!-- ********************** topic ********************** -->
-					Trolltunga, Norway
-				</div>
-			</div>
-			
-			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/img_mountains.jpg">
-				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-	<!-- ********************** topic ********************** -->
-					Beautiful Mountains
-				</div>
-			</div>
-
-			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/bannerdesigning.jpg">
-				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-	<!-- ********************** topic ********************** -->
-					banner designing
-				</div>
-			</div>
+		<div class="w3-content w3-display-container article_slider" style="width: 87.5%;height: 400px !important;overflow: hidden;display:flex;justify-content: center;align-items: center;">
+<?php
+			$arr_img = explode("?#", $row['article_imgs']); 
+			foreach ($arr_img as $value){
+				echo '<div class="w3-display-container mySlides" style="text-align: center;">
+						<img src="img/article/'.$value.'">
+					</div>';
+			}
+?>
 			<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
 			<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
 		</div>
 <!-- ********************** /slider ********************** -->
 		<div class="comment_section">
-			
+			<hr>
+<?php
+			$sql = "select * from comment where com_on = 'article' and post_id = ".$_GET['art']." order by com_time desc";
+			$result = $mysqli->query($sql) or die("error=$sql");
+			$numR = $result->num_rows;
+?>	
+			<h2><?php echo $numR; ?> comments</h2>
+<?php
+			if (!isset($_SESSION['username']) && !isset($_SESSION['adminname']) && !isset($_SESSION['guestname'])) {
+?>
+			<div class="post_comment">
+				<form method="post" action="guestsession.php">
+					<input type="text" placeholder="Enter your name" name="gname" required>
+					<button type="submit" class="submitbt">Submit</button>
+				</form>	
+			</div>
+			<div class="clear"></div>
+<?php
+			}else{
+?>
+			<div class="post_comment" align="right">
+				<form method="post" action="articlecomment.php">
+					<textarea placeholder="Enter your comment" name="comment_txt" rows="5" required></textarea>
+					<input type="hidden" name="article_id" value="<?php echo $_GET['art']; ?>">
+					<button type="submit" class="submitbt">Send</button>
+				</form>	
+			</div>
+			<hr style="border: 0.5px solid #CFCFCF;">
+			<div class="clear"></div>
+<?php
+			}
+			while($row=$result->fetch_array()){
+				if ($row['com_usertype'] == 'user') {
+?>
+			<div class="comment_txt">
+				<h3><?php echo $row['com_name']; ?></h3>
+				<p><?php echo $row['com_txt']; ?></p>
+				<h6>
+					<?php
+						$time = strtotime($row['com_time']);
+						$showdate = date("F j, Y", $time);
+						$showtime = date("H:i", $time);
+						echo $showdate." at ".$showtime;
+					?>
+				</h6>
+				<hr>
+			</div>
+<?php
+				}else{
+?>	
+			<div class="comment_txt admin_comment">
+				<h3><?php echo $row['com_name']; ?></h3>
+				<p><?php echo $row['com_txt']; ?></p>
+				<h6>
+					<?php
+						$time = strtotime($row['com_time']);
+						$showdate = date("F j, Y", $time);
+						$showtime = date("H:i", $time);
+						echo $showdate." at ".$showtime;
+					?>
+				</h6>
+				<hr>
+			</div>
+<?php				
+				}
+			}
+?>
 		</div>
 	</div>
 	<script>
@@ -86,5 +149,7 @@
 		}
 	</script>
 <?php
+		}
+	}
 	echo $layout_footer->output();
 ?>
