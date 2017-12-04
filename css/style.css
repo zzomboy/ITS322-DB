@@ -228,6 +228,30 @@ body {
     color: #fff;
 }
 
+/************************* view article *************************/
+.page_80{
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.article_txt{
+	margin-bottom: 20px;
+}
+.article_txt h2{
+	font-size: 32px;
+	margin-bottom: 5px;
+	line-height: 1.2;
+}
+.article_txt h6{
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+.article_txt p{
+	margin-bottom: 14px;
+	line-height: 1.2;
+}
+
 /************************* about us *************************/
 .about_text h3{
 	color:#4F4F4F;
@@ -337,6 +361,61 @@ body {
 	background-color: #4CAF50;
 	cursor: pointer;
 }
+
+.user_message_scroll{
+	font-size: 15px;
+	height: 280px;
+	width: 600px;
+	overflow: auto;
+	padding: 20px;
+	font-family: 'ambleregular';
+	border: 1px solid #CECECE;
+	margin:auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: white;
+}
+.user_message_scroll .admin_mes{
+	word-wrap:break-word;
+	float: left;
+	max-width: 60%;
+	background-color: #F1F0F0;
+	padding: 10px;
+	border-radius: 15px;
+	margin-bottom: 3px;
+}
+.user_message_scroll .user_mes{
+	word-wrap:break-word;
+	float: right;
+	max-width: 60%;
+	background-color: #427F08;
+	/*background-color: #7646FF;*/
+	color: white;
+	padding: 10px;
+	border-radius: 15px;
+	margin-bottom: 3px;
+}
+.umessage{
+	width: 516px;
+	padding: 8px;
+	font-family: 'ambleregular';
+	border: 1px solid #CECECE;
+}
+.sendbt{
+	font-family: 'ambleregular';
+	font-size: 0.925em;
+    background-color: #427F08;
+    color: white;
+    padding: 8px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+}
+.sendbt:hover{
+	background-color: #74A14A;
+}
+
 
 /************************* footer *************************/
 .footer {
