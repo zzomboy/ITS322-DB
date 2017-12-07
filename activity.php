@@ -25,53 +25,48 @@
 			<hr>
 			<div class="clear"></div>
 			<h5>Lastest activity</h5>
+<?php
+			$q = "select * from activity order by visitor_act desc limit 3";
+			$result = $mysqli -> query($q);
+			if(!$result){
+				echo "Error on : $q";
+			}
+			while ($row=$result->fetch_array()) {
+?>
 			<div class="post_box">
-				<h6><a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
+				<h6><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></a></h6>
+				<h4><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><?php echo $row['activity_name']; ?></a></h4>
+				<p><?php echo $row['activity_text']; ?></p>
 			</div>
-			<div class="post_box">
-				<h6><a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
-			</div>
-			<div class="post_box">
-				<h6><a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wra</p>
-			</div>
+<?php
+			}
+?>
 		</div>
 		<div class="clear"></div>
 		<div class="all_article">
 			<h3>All activity</h3>
-
+<?php
+			if (!isset($_GET['page']) || $_GET['page']==1) {
+				$offset = 0;
+				$limitpage = 4;
+			}
+			else{
+				$offset = $_GET['page']*4-4;
+				$limitpage = $offset.",4";
+			}
+			$q = "select * from activity order by activity_ptime desc limit $limitpage";
+			$result = $mysqli -> query($q);
+			while ($row=$result->fetch_array()) {
+?>
 			<div class="list_article">
-				<a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
+				<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></a>
+				<h4><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><?php echo $row['activity_name']; ?></a></h4>
+				<p><?php echo $row['activity_text']; ?></p>
+				<h5><?php echo $row['activity_date']." at ".$row['activity_locat']; ?></h5>
 			</div>
-
-			<div class="list_article">
-				<a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
-			</div>
-
-			<div class="list_article">
-				<a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
-			</div>
-
-			<div class="list_article">
-				<a href="activity_read.php" target='_blank'><img src="img/noimgfound.jpg"></a>
-				<h4><a href="activity_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wraaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjaoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:breakktoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;wdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;w</p>
-				<h5> 3/12/2017 20:36:52</h5>
-			</div>
+<?php
+			}
+?>	
 		<!-- *************** previous next button *************** -->
 			<div class="pre_next_bt">
 				<a href="#" class="previous">&laquo; Previous</a>

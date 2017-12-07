@@ -44,7 +44,7 @@
 <!-- ********************** slider ********************** -->
 		<div class="w3-content w3-display-container" style="width: 87.5%;height: 400px !important;overflow: hidden;display:flex;justify-content: center;align-items: center;">
 			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/img_lights.jpg">
+				<img src="img/article/img_lights.jpg">
 				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
 	<!-- ********************** topic ********************** -->
 					Trolltunga, Norway
@@ -52,7 +52,7 @@
 			</div>
 			
 			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/img_mountains.jpg">
+				<img src="img/article/img_mountains.jpg">
 				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
 	<!-- ********************** topic ********************** -->
 					Beautiful Mountains

@@ -114,7 +114,6 @@ body {
 	text-overflow: ellipsis;
 	word-wrap:break-word;
 	overflow: hidden;
-	max-height: 305px;
 }
 .post_box h6{
 	text-align: center;
@@ -129,6 +128,7 @@ body {
 }
 .post_box p{
 	color: #8E959C;
+	max-height: 80px;
 }
 .post_box a{
 	color: #414E59;
@@ -171,6 +171,7 @@ body {
 }
 .list_article img{
 	max-height: 130px;
+	max-width: 250px;
 	float: left;
 	margin-right: 20px;
 }
