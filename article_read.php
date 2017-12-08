@@ -93,8 +93,11 @@
 			}
 			while($row=$result->fetch_array()){
 				if ($row['com_usertype'] == 'user') {
-?>
-			<div class="comment_txt">
+					echo '<div class="comment_txt">';
+				}else{
+					echo '<div class="comment_txt admin_comment">';
+				}
+?>	
 				<h3><?php echo $row['com_name']; ?></h3>
 				<p><?php echo $row['com_txt']; ?></p>
 				<h6>
@@ -103,28 +106,21 @@
 						$showdate = date("F j, Y", $time);
 						$showtime = date("H:i", $time);
 						echo $showdate." at ".$showtime;
+					if(isset($_SESSION['adminname'])){
 					?>
+					<a href="delcomment.php?com_id=<?php echo $row['com_id']; ?>"><div class="del_com confirmation"></div></a>
+					<style type="text/css">
+						.comment_txt p{
+							margin-bottom: 5px;
+						}
+					</style>
+<?php 
+					} 
+?>
 				</h6>
 				<hr>
 			</div>
 <?php
-				}else{
-?>	
-			<div class="comment_txt admin_comment">
-				<h3><?php echo $row['com_name']; ?></h3>
-				<p><?php echo $row['com_txt']; ?></p>
-				<h6>
-					<?php
-						$time = strtotime($row['com_time']);
-						$showdate = date("F j, Y", $time);
-						$showtime = date("H:i", $time);
-						echo $showdate." at ".$showtime;
-					?>
-				</h6>
-				<hr>
-			</div>
-<?php				
-				}
 			}
 ?>
 		</div>
@@ -147,6 +143,10 @@
 		  }
 		  x[slideIndex-1].style.display = "block";  
 		}
+
+		$('.confirmation').on('click', function () {
+			return confirm('Are you sure?');
+		});
 	</script>
 <?php
 		}

@@ -107,6 +107,7 @@ body {
 }
 .post_box{
 	width: 25%;
+	padding: 10px 1.5% 20px 1.5%;
 	margin-left: 6.25%;
 	line-height: 1.2;
 	vertical-align: top;
@@ -114,6 +115,12 @@ body {
 	text-overflow: ellipsis;
 	word-wrap:break-word;
 	overflow: hidden;
+	box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	-webkit-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	-moz-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	-o-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	transition: all .2s ease-in-out;
+	background: #FFF;
 }
 .post_box h6{
 	text-align: center;
@@ -121,6 +128,7 @@ body {
 }
 .post_box img{
 	max-height: 180px;
+	max-width: 100%;
 }
 .post_box h4{
 	margin-bottom: 10px;
@@ -129,12 +137,16 @@ body {
 .post_box p{
 	color: #8E959C;
 	max-height: 80px;
+	overflow: hidden;
 }
 .post_box a{
 	color: #414E59;
 }
 .post_box a:hover{
 	color: #427F08;
+}
+.post_box:hover{
+
 }
 
 /************************* slider *************************/
@@ -324,6 +336,16 @@ body {
 }
 .admin_comment h3{
 	color: GREEN;
+}
+.del_com{
+	background-image: url('img/trash1.png');
+	width: 20px;
+	margin-left: 10px;
+	position: relative;
+	top: 5px;
+}
+.del_com:hover{
+	background-image: url('img/trash2.png');
 }
 
 /************************* about us *************************/
