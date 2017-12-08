@@ -31,7 +31,9 @@
 		if(!$result){
 			echo "Error on : $q";
 		}else{
-		$row=$result->fetch_array();
+			$row=$result->fetch_array();
+			$sql = "UPDATE tags SET visitor_count = visitor_count+1 WHERE tag_id = ".$row['tag_id'];
+			$mysqli->query($sql) or die("error=$sql");
 ?>
 			<h2><?php echo $row['article_name']; ?></h2> 
 			<h6>By <?php echo $row['art_author']; ?></h6>
