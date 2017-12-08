@@ -266,7 +266,6 @@ body {
 }
 .cantadd:hover{
 	cursor: not-allowed;
-	
 }
 .tooltip {
     position: relative;

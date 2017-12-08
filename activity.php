@@ -26,18 +26,28 @@
 			<div class="clear"></div>
 			<h5>Lastest activity</h5>
 <?php
-			$q = "select * from activity order by visitor_act desc limit 3";
+			if (!isset($_GET['page']) || $_GET['page']==1) {
+				$offset = 0;
+				$limitpage = 4;
+			}
+			else{
+				$offset = $_GET['page']*4-4;
+				$limitpage = $offset.",4";
+			}
+			$q = "select * from activity order by activity_ptime desc limit $limitpage";
 			$result = $mysqli -> query($q);
 			if(!$result){
 				echo "Error on : $q";
 			}
 			while ($row=$result->fetch_array()) {
 ?>
+		<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'>
 			<div class="post_box">
-				<h6><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></a></h6>
-				<h4><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><?php echo $row['activity_name']; ?></a></h4>
+				<h6><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></h6>
+				<h4><?php echo $row['activity_name']; ?></h4>
 				<p><?php echo $row['activity_text']; ?></p>
 			</div>
+		</a>
 <?php
 			}
 ?>
@@ -69,8 +79,34 @@
 ?>	
 		<!-- *************** previous next button *************** -->
 			<div class="pre_next_bt">
-				<a href="#" class="previous">&laquo; Previous</a>
-				<a href="#" class="next">Next &raquo;</a>
+<?php
+			if(!isset($_GET['page']) || $_GET['page']==1){
+				$q = "select * from activity order by activity_ptime desc limit ".($offset+4).",4";
+				$result = $mysqli -> query($q);
+				if(!$result)
+					echo "Error on : $q";
+				$numR = $result->num_rows;
+				if($numR!=0){
+?>	
+				<a href="activity.php?page=2" class="next">Next &raquo;</a>
+<?php
+				}
+			}else{
+?>	
+				<a href="activity.php?page=<?php echo $_GET['page']-1; ?>" class="previous">&laquo; Previous</a>
+<?php
+				$q = "select * from activity order by activity_ptime desc limit ".($offset+4).",4";
+				$result = $mysqli -> query($q);
+				if(!$result)
+					echo "Error on : $q";
+				$numR = $result->num_rows;
+				if($numR!=0){
+?>					
+				<a href="activity.php?page=<?php echo $_GET['page']+1; ?>" class="next">Next &raquo;</a>
+<?php
+				}
+			}
+?>	
 			</div>	
 			<div class="clear"></div>		
 		</div>		

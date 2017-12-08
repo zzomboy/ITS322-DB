@@ -139,14 +139,8 @@ body {
 	max-height: 80px;
 	overflow: hidden;
 }
-.post_box a{
-	color: #414E59;
-}
-.post_box a:hover{
-	color: #427F08;
-}
 .post_box:hover{
-
+	transform: scale(1.1); 
 }
 
 /************************* slider *************************/

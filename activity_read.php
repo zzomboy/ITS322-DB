@@ -13,7 +13,7 @@
 		$layout_footer = new Template("layout_footer_admin.tpl");
 		$adminname = $_SESSION['adminname'];
 	}
-	$layout_header->set('menu_article','class="active"');
+	$layout_header->set('menu_activity','class="active"');
 	$layout_header->set('title','Global warming website');
 	echo $layout_header->output();
 	if (isset($_GET['art'])){
