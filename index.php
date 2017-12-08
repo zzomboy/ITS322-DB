@@ -23,49 +23,48 @@
 		<div class="recent_update">
 			<h3>Recent Update</h3>
 			<div class="clear"></div>
-			<div class="post_box">
-				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
-			</div>
-			<div class="post_box">
-				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoiewhtoigfdocvhjioehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt</p>
-			</div>
-			<div class="post_box">
-				<h6><a href="article_read.php" target='_blank'><img src="img/noimgfound.jpg"></a></h6>
-				<h4><a href="article_read.php" target='_blank'>ewryt6rujhgvbgkfyui</a></h4>
-				<p>aoieektoierhglkjdfil'bjreio[ajtpierjtehtrerektoierhglkjdfil'bjreio[ajtpierjtpiaerjt word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wrap:break-word;word-wra</p>
-			</div>
+<?php
+			$q = "select * from article order by article_time desc limit 3";
+			$result = $mysqli -> query($q);
+			if(!$result){
+				echo "Error on : $q";
+			}
+			while ($row=$result->fetch_array()) {
+?>
+			<a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'>
+				<div class="post_box">
+					<h6><img src="img/article/<?php $arr = explode("?#",$row['article_imgs']);echo $arr[0]; ?>"></h6>
+					<h4><?php echo $row['article_name']; ?></h4>
+					<p><?php echo $row['article_text']; ?></p>
+				</div>
+			</a>
+<?php
+			}
+?>			
 		</div>
 		<div class="clear"></div>
-
+<?php
+			$q = "select * from activity order by activity_ptime desc limit 4";
+			$result = $mysqli -> query($q);
+			if(!$result){
+				echo "Error on : $q";
+			}
+?>
 <!-- ********************** slider ********************** -->
 		<div class="w3-content w3-display-container" style="width: 87.5%;height: 400px !important;overflow: hidden;display:flex;justify-content: center;align-items: center;">
-			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/article/img_lights.jpg">
-				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+<?php
+			while ($row=$result->fetch_array()) {
+?>
+			<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><div class="w3-display-container mySlides" style="text-align: center;">
+				<img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>">
+				<div class="w3-display-bottomright w3-large w3-container w3-black" style="padding: 5px;">
 	<!-- ********************** topic ********************** -->
-					Trolltunga, Norway
+					<?php echo $row['activity_name']; ?>
 				</div>
-			</div>
-			
-			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/article/img_mountains.jpg">
-				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-	<!-- ********************** topic ********************** -->
-					Beautiful Mountains
-				</div>
-			</div>
-
-			<div class="w3-display-container mySlides" style="text-align: center;">
-				<img src="img/bannerdesigning.jpg">
-				<div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-	<!-- ********************** topic ********************** -->
-					banner designing
-				</div>
-			</div>
+			</div></a>
+<?php
+			}
+?>
 			<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
 			<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
 		</div>

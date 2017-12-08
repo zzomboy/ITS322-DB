@@ -68,12 +68,14 @@
 			$result = $mysqli -> query($q);
 			while ($row=$result->fetch_array()) {
 ?>
-			<div class="list_article">
-				<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></a>
-				<h4><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><?php echo $row['activity_name']; ?></a></h4>
-				<p><?php echo $row['activity_text']; ?></p>
-				<h5><?php echo $row['activity_date']." at ".$row['activity_locat']; ?></h5>
+			<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'>
+				<div class="list_article">
+					<img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>">
+					<h4><?php echo $row['activity_name']; ?></h4>
+					<p><?php echo $row['activity_text']; ?></p>
+					<h5><?php echo $row['activity_date']." at ".$row['activity_locat']; ?></h5>
 			</div>
+			</a>
 <?php
 			}
 ?>	
