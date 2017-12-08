@@ -41,13 +41,13 @@
 			}
 			while ($row=$result->fetch_array()) {
 ?>
-		<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'>
-			<div class="post_box">
-				<h6><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></h6>
-				<h4><?php echo $row['activity_name']; ?></h4>
-				<p><?php echo $row['activity_text']; ?></p>
-			</div>
-		</a>
+			<a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'>
+				<div class="post_box">
+					<h6><img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>"></h6>
+					<h4><?php echo $row['activity_name']; ?></h4>
+					<p><?php echo $row['activity_text']; ?></p>
+				</div>
+			</a>
 <?php
 			}
 ?>

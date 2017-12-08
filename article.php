@@ -58,14 +58,14 @@
 			$result = $mysqli -> query($q);
 			while ($row=$result->fetch_array()) {
 ?>
-		<a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'>
-			<div class="list_article">
-				<img src="img/article/<?php $arr = explode("?#",$row['article_imgs']);echo $arr[0]; ?>">
-				<h4><?php echo $row['article_name']; ?></h4>
-				<p><?php echo $row['article_text']; ?></p>
-				<h5><?php echo $row['article_time']; ?></h5>
-			</div>
-		</a>
+			<a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'>
+				<div class="list_article">
+					<img src="img/article/<?php $arr = explode("?#",$row['article_imgs']);echo $arr[0]; ?>">
+					<h4><?php echo $row['article_name']; ?></h4>
+					<p><?php echo $row['article_text']; ?></p>
+					<h5><?php echo $row['article_time']; ?></h5>
+				</div>
+			</a>
 <?php
 			}
 ?>	
