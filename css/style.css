@@ -332,12 +332,22 @@ body {
 	color: GREEN;
 }
 .del_com{
-	background-image: url('img/trash1.png');
-	width: 20px;
-	margin-left: 10px;
+	cursor: pointer;
+	/*background-image: url(../img/trash1.png) no-repeat 0px 7px;
+	position: relative;
+	width: 20px;*/
+	
+	background: url(../img/trash.png) no-repeat 0px 0px;
+	float: right;
+	width: 24px;
+	height: 24px;
 }
 .del_com:hover{
-	background-image: url('img/trash2.png');
+	cursor: pointer;
+	background: url(../img/trasho.png) no-repeat 0px 0px;
+	float: right;
+	width: 24px;
+	height: 24px;
 }
 
 /************************* about us *************************/

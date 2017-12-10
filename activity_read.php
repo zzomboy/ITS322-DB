@@ -110,11 +110,6 @@
 					<a href="delcomment.php?com_id=<?php echo $row['com_id']; ?>">
 						<div class="del_com confirmation"></div>
 					</a>
-					<style type="text/css">
-						.comment_txt p{
-							margin-bottom: 5px;
-						}
-					</style>
 <?php 
 					} 
 ?>
