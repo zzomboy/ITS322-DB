@@ -9,7 +9,7 @@
 		$layout_footer = new Template("layout_footer.tpl");
 	}
 	else{
-		$layout_header = new Template("layout_header.tpl");
+		$layout_header = new Template("layout_header_admin.tpl");
 		$layout_footer = new Template("layout_footer_admin.tpl");
 		$adminname = $_SESSION['adminname'];
 	}

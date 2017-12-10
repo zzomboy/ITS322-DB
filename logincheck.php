@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require_once('connect.php');
+	unset($_SESSION['username']);
+	unset($_SESSION['guestname']);
 	$uemail	= $_POST['uemail'];
 	$upass	= base64_encode($_POST['upass']);
 	

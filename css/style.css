@@ -514,6 +514,52 @@ body {
 	background-color: #74A14A;
 }
 
+/************************* admin *************************/
+.admin_full{
+	width: 100%;
+	margin-top: 30px;
+}
+.admin_left{
+	width: 25%;
+	max-width: 300px;
+	float: left;
+}
+.admin_menu{
+	width: 100%;
+	text-align: left;
+	font-size: 1em;
+	font-family: 'ambleregular';
+}
+.admin_menu td  a{
+	color :#427F08;
+	padding: 12px;
+	display:block;
+    -webkit-transition: all .2s;
+   	-moz-transition: all .2s;
+   	-o-transition: all .2s;
+   	-ms-transition: all .2s;
+   	transition: all .2s;
+}
+.admin_menu td{
+	border-bottom: 1px solid #D1D1D1;
+}
+.admin_menu td a:hover  , .admin_menu .active , .admin_menu .active a{
+	background:#74A14A;
+	color: white;
+	box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	-webkit-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	-moz-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	-o-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+}
+.admin_menu th{
+	text-align: left;
+	padding: 14px 0 6px 20px;
+	color:#fff;
+	font-size: 1.2em;
+	background: #427F08;
+	border-radius: 6px 6px 0 0;
+
+}
 
 /************************* footer *************************/
 .footer {
