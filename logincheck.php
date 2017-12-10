@@ -12,7 +12,7 @@
 	$numR = $result->num_rows;
 	if($numR==0)
 	{
-		echo "<script>alert('!! Login Fail !! $upass');history.back();</script>";
+		echo "<script>alert('!! Login Fail !!');history.back();</script>";
 		exit();
 	}
 	else{
