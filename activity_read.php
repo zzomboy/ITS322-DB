@@ -107,7 +107,9 @@
 						echo $showdate." at ".$showtime;
 					if(isset($_SESSION['adminname'])){
 					?>
-					<a href="delcomment.php?com_id=<?php echo $row['com_id']; ?>"><div class="del_com confirmation"></div></a>
+					<a href="delcomment.php?com_id=<?php echo $row['com_id']; ?>">
+						<div class="del_com confirmation"></div>
+					</a>
 					<style type="text/css">
 						.comment_txt p{
 							margin-bottom: 5px;
