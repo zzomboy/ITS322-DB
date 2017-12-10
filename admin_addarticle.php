@@ -84,7 +84,7 @@
 							Tag : 
 						</td>
 						<td colspan="2">
-							<select class="input_select" name="art_tag" required>
+							<select class="input_select" name="art_tag">
 								<option disabled selected value>select tag</option>
 								<?php
 									$q = "SELECT * FROM tags";
@@ -109,7 +109,7 @@
 						<td colspan="2">
 							<label class="filecon">
 								<strong>Choose an image...</strong>
-								<input type="file" id="image" name="fileToUpload" onchange="show_name()" multiple>
+								<input type="file" id="image" name="fileToUpload[]" onchange="show_name()" multiple>
 							</label>
 							<div id="file_show" style="font-size: 16px;padding: 3px 0 0 155px"></div>
     					</td>
@@ -159,7 +159,7 @@
 	    		}
 	    		
 	    	}
-	    	document.getElementById('hidden_filename').innerHTML='<input type="hidden" name="pimg" value="'+filenametxt+'">';
+	    	document.getElementById('hidden_filename').innerHTML='<input type="hidden" name="pimg" value="'+filenametxt+'"> <input type="hidden" name="nimg" value="'+names.length+'">';
 	    }
 	    document.getElementById('file_show').innerHTML = filenameshow;
 	    console.log(names);

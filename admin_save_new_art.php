@@ -1,64 +1,71 @@
 <?php
 	session_start();
 	require_once('connect.php');
-	$pname	 =$_POST['pname'];
-	$pprice	 =$_POST['pprice'];
-	$pwarr	 =$_POST['pwarr'];
-	$pcat	 =$_POST['pcat'];
-	$nline_detail =$_POST['nline_detail'];
-	$nline_desc =$_POST['nline_desc'];
-	if (isset($_POST['ppdis'])) {
-		$ppdis = floatval ($_POST['ppdis']);
-		$psale = $pprice - (($pprice*$ppdis)/100);
-	}else{
-		$ppdis = 0;
-		$psale = $pprice;
-	}
-	$c=1;
-	$pdetail = "";
-	while ($c <= $nline_detail) {
-		if (trim($_POST['topic_detail_'.$c]) != "" && trim($_POST['text_detail_'.$c]) != "") {
-			$pdetail = $pdetail.trim($_POST['topic_detail_'.$c])."?".trim($_POST['text_detail_'.$c])."!";
-		}	
-		$c++;
-	}
-	$c=1;
-	$pdesc = "";
-	while ($c <= $nline_desc) {
-		if (trim($_POST['text_desc_'.$c]) != "") {
-			$pdesc = $pdesc.trim($_POST['text_desc_'.$c])."!";
-		}
-		$c++;
-	}
-	if (isset($_POST['pimg'])) {
-		/*$image = $_FILES['ppic']['name'];		
-		echo "<script>console.log('".$ext."');</script>";
-		if(!in_array($ext,$allowed)){
-			echo "<script>alert('Image file can be only .gif or .jpg or .png!!!');history.back();</script>";
-			exit();
-		}else{
-			$pimg = $_POST['pimg'];
-			move_uploaded_file($image['tmp_name'],"../img/product/".$pimg);
-		}*/
+	$art_name = $_POST['art_name'];
+	$art_author = $_POST['art_author'];
+	$article_text = $_POST['article_text'];
+	$find[] = 'â€œ';  // left side double smart quote
+	$find[] = 'â€';  // right side double smart quote
+	$find[] = 'â€˜';  // left side single smart quote
+	$find[] = 'â€™';  // right side single smart quote
+	$find[] = 'â€¦';  // elipsis
+	$find[] = 'â€”';  // em dash
+	$find[] = 'â€“';  // en dash
+	$find[] = "'";
 
-		$target_dir = "img/product/";
-		$target_file = $target_dir.basename($_FILES['fileToUpload']['name']);
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"&& $imageFileType != "gif" ) {
-		    echo "<script>alert('".$imageFileType."Image file can be only .gif or .jpg or .png!!!');history.back();</script>";
-		    exit();
-		}if (file_exists($target_file)) {
-			$pimg = $_POST['pimg'];
-		} 
-		else{
-			$pimg = $_POST['pimg'];
-			move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file);
-		}
-	} else {
-		$pimg = "xxx";
+	$replace[] = '"';
+	$replace[] = '"';
+	$replace[] = "\'";
+	$replace[] = "\'";
+	$replace[] = "...";
+	$replace[] = "-";
+	$replace[] = "-";
+	$replace[] = "\'";
+
+	$text = str_replace($find, $replace, $article_text);
+	echo $text."<br><br>";
+	date_default_timezone_set("Asia/Bangkok");
+	$timestamp = date("Y-m-d H:i:s");
+
+	if ($_POST['new_tag'] != "") {
+		$new_tag = $_POST['new_tag'];
+		$q = "INSERT INTO tags VALUES ('', '$new_tag', '0')";
+		$mysqli->query($q) or die("error=$q");
+		$q = "SELECT * FROM tags where tag_name = '$new_tag'";
+		$result = $mysqli->query($q) or die("error=$q");
+		$row = $result->fetch_array();
+		$tag_id = $row['tag_id'];
+	}else{
+		$tag_id = $_POST['art_tag'];
 	}
 	
-	$sql= "insert into product values('','$pname','$pimg','$pdesc','$pprice','$ppdis','$psale','$pwarr','$pdetail','1','$pcat')";
+	if (isset($_POST['pimg'])) {
+		$target_dir = "img/article/";
+		$target_file = array();
+		for ($i=0; $i < $_POST['nimg']; $i++) { 
+			$target_file[$i] = $target_dir.basename($_FILES['fileToUpload']['name'][$i]);
+		}
+		foreach ($target_file as $key => $value) {
+			$imageFileType = pathinfo($value,PATHINFO_EXTENSION);
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"&& $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG"&& $imageFileType != "GIF") {
+			    echo "<script>alert('Image file can be only .gif or .jpg or .png!!!');history.back();</script>";
+			    exit();
+			}
+		}
+		foreach ($target_file as $key => $value) {
+			if (file_exists($target_file[$key])) {
+				$pimg = $_POST['pimg'];
+			} 
+			else{
+				$pimg = $_POST['pimg'];
+				move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$key], $target_file[$key]);
+			}
+		}
+	}else{
+		$pimg = "noimgfound.jpg";
+	}
+	
+	$sql= "INSERT  INTO article VALUES ('', $tag_id, '$art_name', '$art_author', '$timestamp', '$text', '$pimg', 0)";
 	$mysqli->query($sql) or die("error=$sql");
 	header("location: admin.php");
 	exit();
