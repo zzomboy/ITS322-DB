@@ -20,10 +20,10 @@
 <!--Content-->
 <!--category & picture-->
 	<div class="login_form">
-		<h2>Enter your name and E-mail</h2>
-		<form method="post" action="usersession.php">
+		<h2>Login</h2>
+		<form method="post" action="logincheck.php">
 			<div class="clearfix">
-				<input type="text" placeholder="Enter your email" name="uname" required>
+				<input type="text" placeholder="Enter your email" name="uemail" required>
 				<br>
 				<input type="password" placeholder="Enter your password" name="upass" required>
 				<br>

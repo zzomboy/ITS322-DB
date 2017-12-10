@@ -335,8 +335,6 @@ body {
 	background-image: url('img/trash1.png');
 	width: 20px;
 	margin-left: 10px;
-	position: relative;
-	top: 5px;
 }
 .del_com:hover{
 	background-image: url('img/trash2.png');
@@ -419,7 +417,7 @@ body {
 	font-size: 1.2em;
 	line-height: 1.2;
 }
-.login_form input[type=text]{
+.login_form input[type=text],.login_form input[type=password]{
 	color:#4F4F4F;
 	font-family: 'ambleregular';
 	font-size: 16px;
