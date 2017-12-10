@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2017 at 09:32 AM
+-- Generation Time: Dec 10, 2017 at 10:10 AM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,9 +44,28 @@ CREATE TABLE `activity` (
 --
 
 INSERT INTO `activity` (`activity_id`, `activity_name`, `activity_text`, `activity_imgs`, `activity_date`, `activity_locat`, `activity_ptime`, `visitor_act`) VALUES
-(1, 'Vestibulum non sem a massa', 'Nunc in nunc sit amet dolor dictum blandit ut a ipsum. Pellentesque venenatis metus placerat nulla iaculis gravida. Phasellus nec auctor risus. Nullam arcu arcu, malesuada vitae lobortis ac, lacinia vitae metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam sapien, euismod sit amet dui sed, mollis fringilla massa. \r\nMauris ullamcorper quam vel ligula finibus dignissim. Donec in gravida massa. Nulla eget ornare ante. Praesent arcu elit, bibendum in nunc at, sollicitudin posuere metus. Aenean euismod massa lobortis, vestibulum nulla eget, efficitur velit. Nullam finibus vestibulum aliquet. Proin ultrices a risus id euismod. ', 'figure1.svg?#figure2.jpg?#figure3.jpg', '2017-12-05 18:00:00', 'Mauris ullamcorper', '2017-12-04 09:12:39', 56),
+(1, 'Vestibulum non sem a massa', 'Nunc in nunc sit amet dolor dictum blandit ut a ipsum. Pellentesque venenatis metus placerat nulla iaculis gravida. Phasellus nec auctor risus. Nullam arcu arcu, malesuada vitae lobortis ac, lacinia vitae metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam sapien, euismod sit amet dui sed, mollis fringilla massa. \r\nMauris ullamcorper quam vel ligula finibus dignissim. Donec in gravida massa. Nulla eget ornare ante. Praesent arcu elit, bibendum in nunc at, sollicitudin posuere metus. Aenean euismod massa lobortis, vestibulum nulla eget, efficitur velit. Nullam finibus vestibulum aliquet. Proin ultrices a risus id euismod. ', 'figure1.svg?#figure2.jpg?#figure3.jpg', '2017-12-05 18:00:00', 'Mauris ullamcorper', '2017-12-04 09:12:39', 60),
 (2, 'Mauris tempus elit non', 'Nunc in nunc sit amet dolor dictum blandit ut a ipsum. Pellentesque venenatis metus placerat nulla iaculis gravida. Phasellus nec auctor risus. Nullam arcu arcu, malesuada vitae lobortis ac, lacinia vitae metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam sapien, euismod sit amet dui sed, mollis fringilla massa. \r\nMauris ullamcorper quam vel ligula finibus dignissim. Donec in gravida massa. Nulla eget ornare ante. Praesent arcu elit, bibendum in nunc at, sollicitudin posuere metus. Aenean euismod massa lobortis, vestibulum nulla eget, efficitur velit. Nullam finibus vestibulum aliquet. Proin ultrices a risus id euismod. ', 'figure2.jpg?#figure3.jpg', '2017-12-06 08:30:00', 'Donec in gravida', '2017-12-05 11:35:11', 7),
-(3, 'Nunc in nunc sit', 'Nullam imperdiet tristique cursus. Ut convallis rutrum nunc sit amet sollicitudin. Nam et leo vulputate, ullamcorper diam sed, posuere eros. Praesent bibendum, felis ac dignissim sollicitudin, dolor metus finibus mi, nec finibus erat elit in metus. Etiam sed pharetra lacus. In non bibendum elit, sollicitudin aliquam ex. Donec maximus dui eros, quis dapibus urna lacinia ut. Aliquam pulvinar quam lacus, a tristique diam lobortis vehicula. Donec vitae nulla lectus. Mauris facilisis fermentum risus, quis consectetur nisi varius ut. Pellentesque aliquet aliquam arcu, et pulvinar ante rhoncus a. Quisque congue metus a augue volutpat tincidunt eu et orci. Donec tristique at erat ac rhoncus. In sed bibendum lectus. Mauris placerat rhoncus lorem non tempus. ', 'figure3.jpg?#figure2.jpg', '2017-12-10 12:00:00', 'Aenean euismod', '2017-12-08 18:20:52', 8);
+(3, 'Nunc in nunc sit', 'Nullam imperdiet tristique cursus. Ut convallis rutrum nunc sit amet sollicitudin. Nam et leo vulputate, ullamcorper diam sed, posuere eros. Praesent bibendum, felis ac dignissim sollicitudin, dolor metus finibus mi, nec finibus erat elit in metus. Etiam sed pharetra lacus. In non bibendum elit, sollicitudin aliquam ex. Donec maximus dui eros, quis dapibus urna lacinia ut. Aliquam pulvinar quam lacus, a tristique diam lobortis vehicula. Donec vitae nulla lectus. Mauris facilisis fermentum risus, quis consectetur nisi varius ut. Pellentesque aliquet aliquam arcu, et pulvinar ante rhoncus a. Quisque congue metus a augue volutpat tincidunt eu et orci. Donec tristique at erat ac rhoncus. In sed bibendum lectus. Mauris placerat rhoncus lorem non tempus. ', 'figure3.jpg?#figure2.jpg', '2017-12-10 12:00:00', 'Aenean euismod', '2017-12-08 18:20:52', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
+  `admin_email` varchar(255) NOT NULL,
+  `admin_pw` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_pw`) VALUES
+(1, 'karanpoj@gmail.com', 'cGFzc3dvcmQ= ');
 
 -- --------------------------------------------------------
 
@@ -70,7 +89,7 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`article_id`, `tag_id`, `article_name`, `art_author`, `article_time`, `article_text`, `article_imgs`, `visitor_art`) VALUES
-(1, 1, 'What Is Global Warming?', 'National GeoGraphic', '2017-12-03 10:16:18', 'What will we do to slow this warming? How will we cope with the changes we\'ve already set into motion? While we struggle to figure it all out, the face of the Earth as we know it-coasts, forests, farms and snow-capped mountains-hangs in the balance.\r\nFirst, sunlight shines onto the Earth\'s surface, where it is absorbed and then radiates back into the atmosphere as heat. In the atmosphere, \"greenhouse\" gases trap some of this heat, and the rest escapes into space. The more greenhouse gases are in the atmosphere, the more heat gets trapped.', 'img_lights.jpg?#img_mountains.jpg', 118),
+(1, 1, 'What Is Global Warming?', 'National GeoGraphic', '2017-12-03 10:16:18', 'What will we do to slow this warming? How will we cope with the changes we\'ve already set into motion? While we struggle to figure it all out, the face of the Earth as we know it-coasts, forests, farms and snow-capped mountains-hangs in the balance.\r\nFirst, sunlight shines onto the Earth\'s surface, where it is absorbed and then radiates back into the atmosphere as heat. In the atmosphere, \"greenhouse\" gases trap some of this heat, and the rest escapes into space. The more greenhouse gases are in the atmosphere, the more heat gets trapped.', 'img_lights.jpg?#img_mountains.jpg', 137),
 (2, 1, 'What Is Global Warming? 2', 'National GeoGraphic', '2017-12-04 10:40:09', 'Glaciers are melting, sea levels are rising, cloud forests are dying, and wildlife is scrambling to keep pace. It\'s becoming clear that humans have caused most of the past century\'s warming by releasing heat-trapping gases as we power our modern lives. Called greenhouse gases, their levels are higher now than in the last 650,000 years.\r\nWe call the result global warming, but it is causing a set of changes to the Earth\'s climate, or long-term weather patterns, that varies from place to place. As the Earth spins each day, the new heat swirls with it, picking up moisture over the oceans, rising here, settling there. It\'s changing the rhythms of climate that all living things have come to rely upon.\r\nWhat will we do to slow this warming? How will we cope with the changes we\'ve already set into motion? While we struggle to figure it all out, the face of the Earth as we know it—coasts, forests, farms and snow-capped mountains—hangs in the balance.\r\nGreenhouse effect\r\nThe \"greenhouse effect\" is the warming that happens when certain gases in Earth\'s atmosphere trap heat. These gases let in light but keep heat from escaping, like the glass walls of a greenhouse.\r\nFirst, sunlight shines onto the Earth\'s surface, where it is absorbed and then radiates back into the atmosphere as heat. In the atmosphere, “greenhouse” gases trap some of this heat, and the rest escapes into space. The more greenhouse gases are in the atmosphere, the more heat gets trapped.', 'img_mountains.jpg?#img_lights.jpg', 0),
 (3, 1, 'What Is Global Warming? 3', 'National GeoGraphic', '2017-12-04 11:16:18', 'Glaciers are melting, sea levels are rising, cloud forests are dying, and wildlife is scrambling to keep pace. It\'s becoming clear that humans have caused most of the past century\'s warming by releasing heat-trapping gases as we power our modern lives. Called greenhouse gases, their levels are higher now than in the last 650,000 years.\r\nWe call the result global warming, but it is causing a set of changes to the Earth\'s climate, or long-term weather patterns, that varies from place to place. As the Earth spins each day, the new heat swirls with it, picking up moisture over the oceans, rising here, settling there. It\'s changing the rhythms of climate that all living things have come to rely upon.\r\nWhat will we do to slow this warming? How will we cope with the changes we\'ve already set into motion? While we struggle to figure it all out, the face of the Earth as we know it—coasts, forests, farms and snow-capped mountains—hangs in the balance.\r\nGreenhouse effect\r\nThe \"greenhouse effect\" is the warming that happens when certain gases in Earth\'s atmosphere trap heat. These gases let in light but keep heat from escaping, like the glass walls of a greenhouse.\r\nFirst, sunlight shines onto the Earth\'s surface, where it is absorbed and then radiates back into the atmosphere as heat. In the atmosphere, “greenhouse” gases trap some of this heat, and the rest escapes into space. The more greenhouse gases are in the atmosphere, the more heat gets trapped.', 'img_lights.jpg?#img_mountains.jpg', 7),
 (4, 1, 'What Is Global Warming? 4', 'National GeoGraphic', '2017-12-04 11:46:21', 'Glaciers are melting, sea levels are rising, cloud forests are dying, and wildlife is scrambling to keep pace. It\'s becoming clear that humans have caused most of the past century\'s warming by releasing heat-trapping gases as we power our modern lives. Called greenhouse gases, their levels are higher now than in the last 650,000 years.\r\nWe call the result global warming, but it is causing a set of changes to the Earth\'s climate, or long-term weather patterns, that varies from place to place. As the Earth spins each day, the new heat swirls with it, picking up moisture over the oceans, rising here, settling there. It\'s changing the rhythms of climate that all living things have come to rely upon.\r\nWhat will we do to slow this warming? How will we cope with the changes we\'ve already set into motion? While we struggle to figure it all out, the face of the Earth as we know it—coasts, forests, farms and snow-capped mountains—hangs in the balance.\r\nGreenhouse effect\r\nThe \"greenhouse effect\" is the warming that happens when certain gases in Earth\'s atmosphere trap heat. These gases let in light but keep heat from escaping, like the glass walls of a greenhouse.\r\nFirst, sunlight shines onto the Earth\'s surface, where it is absorbed and then radiates back into the atmosphere as heat. In the atmosphere, “greenhouse” gases trap some of this heat, and the rest escapes into space. The more greenhouse gases are in the atmosphere, the more heat gets trapped.', 'img_mountains.jpg?#img_lights.jpg', 0),
@@ -104,7 +123,8 @@ INSERT INTO `comment` (`com_id`, `com_on`, `post_id`, `com_name`, `com_usertype`
 (1, 'article', 1, 'user 1', 'user', 'The more greenhouse gases are in the atmosphere, the more heat gets trapped.', '2017-12-04 19:21:47'),
 (2, 'article', 1, 'User 2', 'user', 'What will we do to slow this warming? How will we cope with the changes we\'ve already set into motion? While we struggle to figure it all out, the face of the Earth as we know it-coasts, forests, farms and snow-capped mountains-hangs in the balance.', '2017-12-04 19:34:20'),
 (3, 'article', 1, 'Admin', 'admin', 'test1', '2017-12-05 02:13:47'),
-(4, 'activity', 1, 'karanpoj', 'user', 'test comment activity 1\r\n', '2017-12-08 16:12:46');
+(4, 'activity', 1, 'karanpoj', 'user', 'test comment activity 1\r\n', '2017-12-08 16:12:46'),
+(5, 'activity', 1, 'Admin', 'admin', 'admin reply comment 1', '2017-12-10 16:00:36');
 
 -- --------------------------------------------------------
 
@@ -166,7 +186,7 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`tag_id`, `tag_name`, `visitor_count`) VALUES
-(1, 'tag1', 8);
+(1, 'tag1', 27);
 
 --
 -- Indexes for dumped tables
@@ -177,6 +197,12 @@ INSERT INTO `tags` (`tag_id`, `tag_name`, `visitor_count`) VALUES
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activity_id`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `article`
@@ -217,31 +243,43 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `activity`
   MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
   MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `conversation`
 --
 ALTER TABLE `conversation`
   MODIFY `con_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
   MODIFY `mes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
