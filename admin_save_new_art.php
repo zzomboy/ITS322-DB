@@ -23,7 +23,6 @@
 	$replace[] = "\'";
 
 	$text = str_replace($find, $replace, $article_text);
-	echo $text."<br><br>";
 	date_default_timezone_set("Asia/Bangkok");
 	$timestamp = date("Y-m-d H:i:s");
 
