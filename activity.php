@@ -73,7 +73,17 @@
 					<img src="img/activity/<?php $arr = explode("?#",$row['activity_imgs']);echo $arr[0]; ?>">
 					<h4><?php echo $row['activity_name']; ?></h4>
 					<p><?php echo $row['activity_text']; ?></p>
-					<h5><?php echo $row['activity_date']." at ".$row['activity_locat']; ?></h5>
+<?php
+					if ($row['activity_type'] == 1){
+?>
+					<h5><?php echo $row['activity_1day']." at ".$row['activity_locat']; ?></h5>
+<?php
+					}else{
+?>
+					<h5><?php echo $row['activity_start']." to ".$row['activity_end']." at ".$row['activity_locat']; ?></h5>
+<?php
+					}
+?>
 			</div>
 			</a>
 <?php

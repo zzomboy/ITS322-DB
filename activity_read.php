@@ -39,8 +39,17 @@
 			foreach ($arr_txt as $value){
 				echo "<p>".$value."</p>";
 			}
+
+			if ($row['activity_type'] == 1){
 ?>
-			<p>Date : <?php echo $row['activity_date']." at ".$row['activity_locat']; ?></p>
+			<p>Date : <?php echo $row['activity_1day']." at ".$row['activity_locat']; ?></p>
+<?php
+			}else{
+?>
+			<p>Date : <?php echo $row['activity_start']." to ".$row['activity_end']." at ".$row['activity_locat']; ?></p>
+<?php
+			}
+?>
 		</div>
 
 		<div class="clear"></div>
@@ -100,13 +109,13 @@
 				<h3><?php echo $row['com_name']; ?></h3>
 				<p><?php echo $row['com_txt']; ?></p>
 				<h6>
-					<?php
+<?php
 						$time = strtotime($row['com_time']);
 						$showdate = date("F j, Y", $time);
 						$showtime = date("H:i", $time);
 						echo $showdate." at ".$showtime;
 					if(isset($_SESSION['adminname'])){
-					?>
+?>
 					<a href="delcomment.php?com_id=<?php echo $row['com_id']; ?>">
 						<div class="del_com confirmation"></div>
 					</a>

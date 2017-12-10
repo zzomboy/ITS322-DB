@@ -64,46 +64,7 @@
 	</div>
 
 	<div class="admin_right">
-		<div class="admin_tool_box">
-			<div class="admin_search_box">
-				<form method="get" action="admin_search_article.php">
-	     			<input type="text" placeholder="Search article" name="searchword">
-	     			<input type="submit" value="">
-			     </form>
-			</div>
-			<select class="sortby_tool" onchange="location = this.value;">
-				<option disabled selected value> Sort By </option>
-				<option value="?sortby=article_time desc">Newest - Oldest</option>
-				<option value="?sortby=article_time">Oldest - Newest</option>
-				<option value="?sortby=article_name">Name A - Z</option>
-				<option value="?sortby=article_name desc">Name Z - A</option>
-				<option value="?sortby=tag_name">Tag A - Z</option>
-				<option value="?sortby=tag_name desc">Tag Z - A</option>	
-			</select>
-     	</div>
-		<div class="clear"></div>
-
-		<div class="table_heading">
-    		<h2>Aricle management</h2>
-    	</div>
-    	<div class="clear"></div>
-
-		<table class='article_tb'>
-<?php
-		$q = "SELECT a.*,t.tag_name FROM tags t,article a WHERE t.tag_id=a.tag_id ORDER BY ".$sortby;
-		$result = $mysqli -> query($q);
-		while($row=$result->fetch_array()){
-?>
-		<tr>
-			<td><a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'><?php echo $row['article_name']; ?></a></td>
-			<td><?php echo $row['tag_name']; ?></td>	
-			<td><a href='admin_edit_art.php?edit_id=<?php echo $row['article_id']; ?>'><img src='img/pro_edit.png' width='24' height='24'></td>
-			<td><a href='admin_del_art.php?delete_id=<?php echo $row['article_id']; ?>' class='confirmation'><img src='img/trash2.png' width='24' height='24'></a></td>
-		</tr>
-<?php
-		}
-?>
-		</table>
+		
 	</div>
 
 	<div class="clear"></div>
