@@ -18,7 +18,6 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="login_form">
 		<h2>Login</h2>
 		<form method="post" action="logincheck.php">

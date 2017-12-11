@@ -19,7 +19,6 @@
 	if (isset($_GET['art'])){
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="page_80">
 		<div class="article_txt">
 <?php
@@ -87,8 +86,24 @@
 			<div class="clear"></div>
 <?php
 			}else{
+				if (isset($_SESSION['username'])) {
+					$name = $_SESSION['username'];
+				}elseif (isset($_SESSION['guestname'])) {
+					$name = $_SESSION['guestname'];
+				}else{
+					$name = "Admin";
+				}
 ?>
 			<div class="post_comment" align="right">
+				<p class="curr_name">Comment as <span><?php echo $name; ?></span>
+<?php 
+					if($name != "Admin"){ 
+?>
+						&nbsp;&nbsp;(<a href="userlogout.php">change name</a>)
+<?php 
+					} 
+?>
+				</p>
 				<form method="post" action="activitycomment.php">
 					<textarea placeholder="Enter your comment" name="comment_txt" rows="5" required></textarea>
 					<input type="hidden" name="activity_id" value="<?php echo $_GET['art']; ?>">

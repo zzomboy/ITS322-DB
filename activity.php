@@ -18,23 +18,17 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="full_page">
 		<div class="recent_update">
 			<h3>Activity</h3>
 			<hr>
 			<div class="clear"></div>
+<?php
+		if (!isset($_GET['page'])) {		
+?>
 			<h5>Lastest activity</h5>
 <?php
-			if (!isset($_GET['page']) || $_GET['page']==1) {
-				$offset = 0;
-				$limitpage = 4;
-			}
-			else{
-				$offset = $_GET['page']*4-4;
-				$limitpage = $offset.",4";
-			}
-			$q = "select * from activity order by activity_ptime desc limit $limitpage";
+			$q = "select * from activity order by activity_ptime desc limit 3";
 			$result = $mysqli -> query($q);
 			if(!$result){
 				echo "Error on : $q";
@@ -53,6 +47,9 @@
 ?>
 		</div>
 		<div class="clear"></div>
+<?php
+		}
+?>	
 		<div class="all_article">
 			<h3>All activity</h3>
 <?php

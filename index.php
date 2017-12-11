@@ -18,7 +18,6 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="full_page">
 		<div class="recent_update">
 			<h3>Recent Update</h3>

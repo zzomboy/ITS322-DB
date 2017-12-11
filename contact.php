@@ -20,7 +20,6 @@
 	if (!isset($_SESSION['username'])) {
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="login_form">
 		<h2>Enter your name and E-mail</h2>
 		<form method="post" action="usersession.php">
@@ -63,6 +62,8 @@
 		<div align="center">
 			<input class="umessage" type="text" name="umes" rows="10" required>
 			<button class="sendbt" type="submit">Send</button>
+			<br>
+			<p class="con_name">Send as <span><?php echo $_SESSION['username']; ?></span>&nbsp;&nbsp;(<a href="userlogout.php">logout</a>)</p>
 		</div>
 	</form>
 </div>

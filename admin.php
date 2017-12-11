@@ -31,7 +31,6 @@
 	}
 ?>
 <!--Content-->
-<!--category & picture-->
 <div class="admin_full">
 	<div class="admin_left">
 		<table class="admin_menu">

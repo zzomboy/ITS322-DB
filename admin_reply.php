@@ -22,6 +22,9 @@
 		echo $layout_footer->output();
 		exit();
 	}
+	$con_id = $_GET['con_id'];
+	$sql	= "UPDATE message SET mes_check = 1 WHERE con_id = $con_id";
+    $result = $mysqli->query($sql) or die("error=$sql");
 ?>
 <!--Content-->
 <div class="admin_full">
@@ -43,32 +46,51 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="active">
+				<td>
 					<a href="admin_addpost.php">New Article & Activity</a>
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="active">
 					<a href="admin_messages.php">View Messages</a>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-	<div class="admin_right">
-		<div class="choosepost_form" align="center">
-			<button class="admin_addbt" onclick="window.location.href='admin_addarticle.php'">Add new Article</button>
-			<button class="admin_addbt" onclick="window.location.href='admin_addactivity.php'">Add new Activity</button>
+	<div class="view_mes">
+		<div class="user_message_scroll" id="message_scroll">
+		<?php
+			$q	= "select * from conversation as c,message as m WHERE c.con_id = m.con_id and c.con_id = $con_id order by m.mes_datetime";
+			$result	= $mysqli->query($q);
+			if(!$result){
+				echo "Error on : $q";
+			}
+			else{
+				echo "<table width=100% style='table-layout: fixed;'>";
+				while($row=$result->fetch_array()){
+					if($row['mes_from'] != "admin"){
+						echo "<tr><td colspan='2' class='admin_mes'>".$row['mes_txt']."</td></tr>";
+					}else{
+						echo "<tr><td colspan='2' class='user_mes'>".$row['mes_txt']."</td></tr>";
+					}
+				}
+				echo "</table>";
+			}
+		?>
 		</div>
+		<form action="admin_sendmes.php" method="post">
+			<input class="amessage" type="text" name="umes" rows="10" required>
+			<input type="hidden" name="con_id" value="<?php echo $con_id; ?>">
+			<button class="sendbt" type="submit">Send</button>
+		</form>
 	</div>
-
 	<div class="clear"></div>
 </div>
 <?php
 	echo $layout_footer->output();
 ?>
 <script type="text/javascript">
-    $('.confirmation').on('click', function () {
-        return confirm('Are you sure?');
-    });
+	var message_scroll = document.getElementById("message_scroll");
+	message_scroll.scrollTop = message_scroll.scrollHeight;
 </script>

@@ -19,7 +19,6 @@
 	if (isset($_GET['art'])){
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="page_80">
 		<div class="article_txt">
 <?php
@@ -43,7 +42,7 @@
 				echo "<p>".$value."</p>";
 			}
 ?>
-			<p>Tag : <?php echo $row['tag_name']; ?></p>
+			<p>Tag : <a href="tag.php?tag=<?php echo $row['tag_name']; ?>"><?php echo $row['tag_name']; ?></p></a>
 		</div>
 
 		<div class="clear"></div>

@@ -13,6 +13,7 @@ body {
 	max-width:80%;
 	min-width: 857px;
 	margin: 0 auto;
+	font-size: 16px;
 }
 
 /************************* header logo *************************/
@@ -258,10 +259,30 @@ body {
 	margin-bottom: 14px;
 	line-height: 1.2;
 }
+.article_txt a{
+	color: #427F08;
+}
+.article_txt a:hover{
+	color: #729E49;
+}
 .article_slider{
 	margin-bottom: 40px;
 }
 
+.curr_name{
+	float: left;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.curr_name span{
+	color: #427F08;
+}
+.curr_name a{
+	color: #4CAF50;
+}
+.curr_name a:hover{
+	color: #427F08;
+}
 .post_comment{
 	margin-bottom: 20px;
 	padding: 20px;
@@ -501,10 +522,10 @@ body {
 }
 .sendbt{
 	font-family: 'ambleregular';
-	font-size: 0.925em;
+	font-size: 16px;
     background-color: #427F08;
     color: white;
-    padding: 8px 0px;
+    padding: 9px 0px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -512,6 +533,18 @@ body {
 }
 .sendbt:hover{
 	background-color: #74A14A;
+}
+.con_name{
+	margin-top: 10px;
+}
+.con_name span{
+	color: #427F08;
+}
+.con_name a{
+	color: #4CAF50;
+}
+.con_name a:hover{
+	color: #427F08;
 }
 
 /************************* admin *************************/
@@ -618,7 +651,7 @@ body {
 	margin-left: 10px;
 }
 
-.article_tb,.activity_tb{
+.article_tb,.activity_tb,.listmessage_tb{
 	width: 100%;
 	background: white;
 	table-layout: fixed;
@@ -840,6 +873,65 @@ body {
 	-o-box-shadow: 0px 0px 3px rgb(150, 150, 150);
 }
 
+/************************* View message *************************/
+.listmessage_tb td,.listmessage_tb th{
+	border:1px solid #CECECE;
+	border-collapse: collapse;
+	vertical-align: middle;
+	padding: 4px 10px;
+}
+.listmessage_tb th{
+	background: #74A14A;
+	color: white;
+	font-size: 16px;
+}
+.listmessage_tb td:nth-child(1),.listmessage_tb th:nth-child(1){
+	width: 6%;
+}
+.listmessage_tb td:nth-child(2),.listmessage_tb th:nth-child(2){
+	width: 22%;
+	text-align:left;
+}
+.listmessage_tb td:nth-child(3),.listmessage_tb th:nth-child(3){
+	width: 28%;
+	text-align:left;
+}
+.listmessage_tb td:nth-child(4),.listmessage_tb th:nth-child(4){
+	width: 36%;
+	text-align:left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.listmessage_tb td:nth-child(5),.listmessage_tb th:nth-child(5){
+	width: 8%;
+}
+.view_mes{
+	width: 74%;
+	max-width: 600px;
+	float: left;
+	margin-left: 10%;
+}
+.amessage{
+	width: 516px;
+	padding: 8px;
+	font-family: 'ambleregular';
+	border: 1px solid #CECECE;
+}
+
+/************************* search *************************/
+.section2  li a {
+	font-size: 18px;
+	padding:8px 15px;
+	color:#427F08;
+	font-family: 'ambleregular';
+	display: block;
+	background:url(../img/drop_arrow.png) no-repeat 0;
+}
+.section2  li a:hover {
+	color:#74A14A;
+}
+
 /************************* footer *************************/
 .footer {
 	position: relative;
@@ -860,13 +952,13 @@ body {
 }
 .section h2 { /** Global Warming text **/
 	color:#37560D;
-	font-size: 1.25em;
+	font-size: 22px;
 	line-height: 1.2;
 }
 .section  h4 { /** title **/
 	color:#37560D;
 	margin-bottom: .7em;
-	font-size: 1em;
+	font-size: 18px;
 	line-height: 1.2;
 	font-family: 'ambleregular';
 	font-weight: normal;
@@ -874,7 +966,7 @@ body {
 	text-transform: uppercase;
 }
 .section  li a { /** link **/
-	font-size: 0.925em;
+	font-size: 16px;
 	padding:8px 15px;
 	color:#427F08;
 	font-family: 'ambleregular';
@@ -885,7 +977,7 @@ body {
 	color:#74A14A;
 }
 .section  li span{ /** Tel **/
-	font-size:0.97em;
+	font-size:16px;
 	font-family: 'ambleregular';
 	color:#427F08;
 	margin:10px 0;

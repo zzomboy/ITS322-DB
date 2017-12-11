@@ -18,7 +18,6 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
-<!--category & picture-->
 	
 <?php
 	echo $layout_footer->output();

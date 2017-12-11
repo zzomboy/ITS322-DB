@@ -18,12 +18,14 @@
 	echo $layout_header->output();
 ?>
 <!--Content-->
-<!--category & picture-->
 	<div class="full_page">
 		<div class="recent_update">
 			<h3>Article</h3>
 			<hr>
 			<div class="clear"></div>
+<?php
+		if (!isset($_GET['page'])) {		
+?>
 			<h5>Popular article</h5>
 <?php
 			$q = "select * from article order by visitor_art desc limit 3";
@@ -43,6 +45,9 @@
 ?>			
 		</div>
 		<div class="clear"></div>
+<?php
+		}			
+?>
 		<div class="all_article">
 			<h3>All article</h3>
 <?php
