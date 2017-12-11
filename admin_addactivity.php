@@ -85,16 +85,16 @@
 						</td>
 						<td colspan="2">
 							<br>1 day<br>
-							<input type="date" class="input_select" name="act_date" style="width: 200px">
+							<input type="date" class="input_select" name="act_date" style="width: 157px">
 							<input type="time" class="input_select" name="act_time">
 							<br>or Between<br>
-							<input type="date" class="input_select" name="act_start" style="width: 200px"> and
-							<input type="date" class="input_select" name="act_end" style="width: 200px"> 
+							<input type="date" class="input_select" name="act_start" style="width: 157px"> and
+							<input type="date" class="input_select" name="act_end" style="width: 157px"> 
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3" style="text-align: center;padding: 0px;">
-							<textarea name="article_text" rows="40" required></textarea>
+							<textarea name="activity_text" rows="40" required></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -106,7 +106,7 @@
 								<strong>Choose an image...</strong>
 								<input type="file" id="image" name="fileToUpload[]" onchange="show_name()" multiple>
 							</label>
-							<div id="file_show" style="font-size: 16px;padding: 3px 0 0 155px"></div>
+							<div id="file_show" style="font-size: 15px;padding: 3px 0 0 155px"></div>
     					</td>
 					</tr>
 					<tr>
@@ -157,7 +157,5 @@
 	    	document.getElementById('hidden_filename').innerHTML='<input type="hidden" name="pimg" value="'+filenametxt+'"> <input type="hidden" name="nimg" value="'+names.length+'">';
 	    }
 	    document.getElementById('file_show').innerHTML = filenameshow;
-	    console.log(names);
-	    console.log(filenametxt);
 	};
 </script>

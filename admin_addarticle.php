@@ -111,7 +111,7 @@
 								<strong>Choose an image...</strong>
 								<input type="file" id="image" name="fileToUpload[]" onchange="show_name()" multiple>
 							</label>
-							<div id="file_show" style="font-size: 16px;padding: 3px 0 0 155px"></div>
+							<div id="file_show" style="font-size: 15px;padding: 3px 0 0 155px"></div>
     					</td>
 					</tr>
 					<tr>

@@ -731,7 +731,7 @@ body {
 .add_post_tb input[type=text],.add_post_tb input[type=date]{
 	color:#4F4F4F;
 	font-family: 'ambleregular';
-	font-size: 16px;
+	font-size: 15px;
 	width: 100%;
     max-width: 350px;
     padding: 8px 16px;
@@ -746,7 +746,7 @@ body {
 	width: 90%;
 	color:#4F4F4F;
 	font-family: 'ambleregular';
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 1.2;
 	padding: 10px;
 	margin: 8px 0;
@@ -774,7 +774,7 @@ body {
 .add_post_tb .input_select {
 	color:#4F4F4F;
 	font-family: 'ambleregular';
-	font-size: 16px;
+	font-size: 15px;
     padding: 8px 16px;
     margin: 8px 0;
     display: inline-block;

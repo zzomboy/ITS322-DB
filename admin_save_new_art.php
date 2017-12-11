@@ -4,13 +4,13 @@
 	$art_name = $_POST['art_name'];
 	$art_author = $_POST['art_author'];
 	$article_text = $_POST['article_text'];
-	$find[] = 'â€œ';  // left side double smart quote
-	$find[] = 'â€';  // right side double smart quote
-	$find[] = 'â€˜';  // left side single smart quote
-	$find[] = 'â€™';  // right side single smart quote
-	$find[] = 'â€¦';  // elipsis
-	$find[] = 'â€”';  // em dash
-	$find[] = 'â€“';  // en dash
+	$find[] = 'â€œ';
+	$find[] = 'â€';
+	$find[] = 'â€˜';
+	$find[] = 'â€™';
+	$find[] = 'â€¦';
+	$find[] = 'â€”';
+	$find[] = 'â€“';
 	$find[] = "'";
 
 	$replace[] = '"';
