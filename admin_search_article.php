@@ -24,7 +24,7 @@
 	}
 
 	if (!isset($_GET['sortby'])) {
-		$sortby = "activity_ptime desc";
+		$sortby = "article_time desc";
 	}
 	else{
 		$sortby = $_GET['sortby'];
@@ -40,12 +40,12 @@
 				</th>
 			</tr>
 			<tr>
-				<td>
+				<td class="active">
 					<a href="admin.php">Article management</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="active">
+				<td>
 					<a href="admin_activity.php">Activity management</a>
 				</td>
 			</tr>
@@ -65,50 +65,39 @@
 	<div class="admin_right">
 		<div class="admin_tool_box">
 			<div class="admin_search_box">
-				<form method="get" action="admin_search_activity.php">
+				<form method="get" action="admin_search_article.php">
 	     			<input type="text" placeholder="Search article" name="searchword">
 	     			<input type="submit" value="">
 			     </form>
 			</div>
 			<select class="sortby_tool" onchange="location = this.value;">
 				<option disabled selected value> Sort By </option>
-				<option value="?sortby=activity_ptime desc">Newest - Oldest</option>
-				<option value="?sortby=activity_ptime">Oldest - Newest</option>
-				<option value="?sortby=activity_name">Name A - Z</option>
-				<option value="?sortby=activity_name desc">Name Z - A</option>	
+				<option value="?sortby=article_time desc&searchword=<?php echo $_GET['searchword']; ?>">Newest - Oldest</option>
+				<option value="?sortby=article_time&searchword=<?php echo $_GET['searchword']; ?>">Oldest - Newest</option>
+				<option value="?sortby=article_name&searchword=<?php echo $_GET['searchword']; ?>">Name A - Z</option>
+				<option value="?sortby=article_name desc&searchword=<?php echo $_GET['searchword']; ?>">Name Z - A</option>
+				<option value="?sortby=tag_name&searchword=<?php echo $_GET['searchword']; ?>">Tag A - Z</option>
+				<option value="?sortby=tag_name desc&searchword=<?php echo $_GET['searchword']; ?>">Tag Z - A</option>	
 			</select>
      	</div>
 		<div class="clear"></div>
 
 		<div class="table_heading">
-    		<h2>Activity management</h2>
+    		<h2>Searching acrticle for "<?php echo $_GET['searchword']; ?>"</h2>
     	</div>
     	<div class="clear"></div>
 
-		<table class='activity_tb'>
+		<table class='article_tb'>
 <?php
-		$q = "SELECT * FROM activity ORDER BY ".$sortby;
+		$q = "SELECT a.*,t.tag_name FROM tags t,article a WHERE t.tag_id=a.tag_id and (a.article_name like '%".$_GET['searchword']."%' or t.tag_name like '%".$_GET['searchword']."%') ORDER BY ".$sortby;
 		$result = $mysqli -> query($q);
 		while($row=$result->fetch_array()){
 ?>
 		<tr>
-			<td><a href="activity_read.php?art=<?php echo $row['activity_id']; ?>" target='_blank'><?php echo $row['activity_name']; ?></a></td>
-			<td><?php echo $row['activity_locat']; ?></td>
-			<td>
-<?php
-			if ($row['activity_type'] == 1){
-?>
-			<?php echo $row['activity_1day']; ?>
-<?php
-			}else{
-?>
-			<?php echo $row['activity_start']." to ".$row['activity_end']; ?>
-<?php
-			}
-?>
-			</td>	
-			<td><a href='admin_edit_act.php?edit_id=<?php echo $row['activity_id']; ?>'><img src='img/pro_edit.png' width='24' height='24'></td>
-			<td><a href='admin_del_act.php?delete_id=<?php echo $row['activity_id']; ?>' class='confirmation'><img src='img/trash2.png' width='24' height='24'></a></td>
+			<td><a href="article_read.php?art=<?php echo $row['article_id']; ?>" target='_blank'><?php echo $row['article_name']; ?></a></td>
+			<td><?php echo $row['tag_name']; ?></td>	
+			<td><a href='admin_edit_art.php?edit_id=<?php echo $row['article_id']; ?>'><img src='img/pro_edit.png' width='24' height='24'></td>
+			<td><a href='admin_del_art.php?delete_id=<?php echo $row['article_id']; ?>' class='confirmation'><img src='img/trash2.png' width='24' height='24'></a></td>
 		</tr>
 <?php
 		}

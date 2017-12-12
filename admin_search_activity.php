@@ -72,22 +72,22 @@
 			</div>
 			<select class="sortby_tool" onchange="location = this.value;">
 				<option disabled selected value> Sort By </option>
-				<option value="?sortby=activity_ptime desc">Newest - Oldest</option>
-				<option value="?sortby=activity_ptime">Oldest - Newest</option>
-				<option value="?sortby=activity_name">Name A - Z</option>
-				<option value="?sortby=activity_name desc">Name Z - A</option>	
+				<option value="?sortby=activity_ptime desc&searchword=<?php echo $_GET['searchword']; ?>">Newest - Oldest</option>
+				<option value="?sortby=activity_ptime&searchword=<?php echo $_GET['searchword']; ?>">Oldest - Newest</option>
+				<option value="?sortby=activity_name&searchword=<?php echo $_GET['searchword']; ?>">Name A - Z</option>
+				<option value="?sortby=activity_name desc&searchword=<?php echo $_GET['searchword']; ?>">Name Z - A</option>	
 			</select>
      	</div>
 		<div class="clear"></div>
 
 		<div class="table_heading">
-    		<h2>Activity management</h2>
+    		<h2>Searching activity for "<?php echo $_GET['searchword']; ?>"</h2>
     	</div>
     	<div class="clear"></div>
 
 		<table class='activity_tb'>
 <?php
-		$q = "SELECT * FROM activity ORDER BY ".$sortby;
+		$q = "SELECT * FROM activity where activity_name like '%".$_GET['searchword']."%' or activity_locat like '%".$_GET['searchword']."%' ORDER BY ".$sortby;
 		$result = $mysqli -> query($q);
 		while($row=$result->fetch_array()){
 ?>
