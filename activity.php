@@ -73,11 +73,11 @@
 <?php
 					if ($row['activity_type'] == 1){
 ?>
-					<h5><?php echo $row['activity_1day']." at ".$row['activity_locat']; ?></h5>
+					<h5 style="text-align: left;"><?php echo $row['activity_1day']." at ".$row['activity_locat']; ?></h5>
 <?php
 					}else{
 ?>
-					<h5><?php echo $row['activity_start']." to ".$row['activity_end']." at ".$row['activity_locat']; ?></h5>
+					<h5 style="text-align: left;"><?php echo $row['activity_start']." to ".$row['activity_end']." at ".$row['activity_locat']; ?></h5>
 <?php
 					}
 ?>

@@ -52,6 +52,11 @@
 					<a href="admin_messages.php">View Messages</a>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<a href="admin_newadmin.php">Add new Admin</a>
+				</td>
+			</tr>
 		</table>
 	</div>
 
@@ -84,11 +89,11 @@
 						</td>
 						<td colspan="2">
 							<br>1 day<br>
-							<input type="date" class="input_select" name="act_date" style="width: 157px">
+							<input type="date" class="input_select" name="act_date" style="width: 175px">
 							<input type="time" class="input_select" name="act_time">
 							<br>or Between<br>
-							<input type="date" class="input_select" name="act_start" style="width: 157px"> and
-							<input type="date" class="input_select" name="act_end" style="width: 157px"> 
+							<input type="date" class="input_select" name="act_start" style="width: 175px"> and
+							<input type="date" class="input_select" name="act_end" style="width: 175px"> 
 						</td>
 					</tr>
 					<tr>

@@ -22,16 +22,13 @@
 	<div class="page_80">
 		<div class="article_txt">
 <?php
-		$sql = "UPDATE article SET visitor_art = visitor_art+1 WHERE article_id = ".$_GET['art'];
-		$mysqli->query($sql) or die("error=$sql");
-
 		$q = "select * from article as a , tags as t where a.tag_id = t.tag_id and a.article_id = ".$_GET['art'];
 		$result = $mysqli -> query($q);
 		if(!$result){
 			echo "Error on : $q";
 		}else{
 			$row=$result->fetch_array();
-			$sql = "UPDATE tags SET visitor_count = visitor_count+1 WHERE tag_id = ".$row['tag_id'];
+			$sql = "UPDATE article SET visitor_art = visitor_art+1 WHERE article_id = ".$_GET['art'];
 			$mysqli->query($sql) or die("error=$sql");
 ?>
 			<h2><?php echo $row['article_name']; ?></h2> 

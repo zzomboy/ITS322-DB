@@ -508,7 +508,6 @@ body {
 	float: right;
 	max-width: 60%;
 	background-color: #427F08;
-	/*background-color: #7646FF;*/
 	color: white;
 	padding: 10px;
 	border-radius: 15px;
@@ -761,7 +760,7 @@ body {
 .add_post_tb{
 	width: 100%;
 }
-.add_post_tb input[type=text],.add_post_tb input[type=date]{
+.add_post_tb input[type=text],.add_post_tb input[type=date],.add_post_tb input[type=password]{
 	color:#4F4F4F;
 	font-family: 'ambleregular';
 	font-size: 15px;
@@ -906,18 +905,12 @@ body {
 .listmessage_tb td:nth-child(5),.listmessage_tb th:nth-child(5){
 	width: 8%;
 }
-.view_mes{
-	width: 74%;
-	max-width: 600px;
-	float: left;
-	margin-left: 10%;
-}
-.amessage{
-	width: 516px;
+/*.amessage{
+	width: 416px;
 	padding: 8px;
 	font-family: 'ambleregular';
 	border: 1px solid #CECECE;
-}
+*/
 
 /************************* search *************************/
 .section2  li a {

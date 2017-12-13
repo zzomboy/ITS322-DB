@@ -22,9 +22,13 @@
 		echo $layout_footer->output();
 		exit();
 	}
-	$con_id = $_GET['con_id'];
-	$sql	= "UPDATE message SET mes_check = 1 WHERE con_id = $con_id";
-    $result = $mysqli->query($sql) or die("error=$sql");
+
+	if (!isset($_GET['sortby'])) {
+		$sortby = "article_time desc";
+	}
+	else{
+		$sortby = $_GET['sortby'];
+	}
 ?>
 <!--Content-->
 <div class="admin_full">
@@ -51,51 +55,64 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="active">
+				<td>
 					<a href="admin_messages.php">View Messages</a>
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="active">
 					<a href="admin_newadmin.php">Add new Admin</a>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-	<div class="view_mes" style="width: 74%;max-width: 555px;float: left;margin-left: 10%;">
-		<div class="user_message_scroll admin_scroll" id="message_scroll" style="width: 550px;margin:0 0 10px 0 ">
-		<?php
-			$q	= "select * from conversation as c,message as m WHERE c.con_id = m.con_id and c.con_id = $con_id order by m.mes_datetime";
-			$result	= $mysqli->query($q);
-			if(!$result){
-				echo "Error on : $q";
-			}
-			else{
-				echo "<table width=100% style='table-layout: fixed;'>";
-				while($row=$result->fetch_array()){
-					if($row['mes_from'] != "admin"){
-						echo "<tr><td colspan='2' class='admin_mes'>".$row['mes_txt']."</td></tr>";
-					}else{
-						echo "<tr><td colspan='2' class='user_mes'>".$row['mes_txt']."</td></tr>";
-					}
-				}
-				echo "</table>";
-			}
-		?>
+	<div class="admin_right">
+		<div class="post_form">
+			<h3>Add new Article</h3>
+			<form method="post" action="admin_save_new_art.php" enctype="multipart/form-data">
+				<table class="add_post_tb">
+					<tr>
+						<td>
+							Email :
+						</td>
+						<td>
+							<input type="text" placeholder="Enter Email" name="aemail" required>
+						</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td>
+							Password :				
+						</td>
+						<td>
+							<input type="password" placeholder="Enter Password" name="apw" required>
+						</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td>
+							Repeat Password :
+						</td>
+						<td>
+							<input type="password" placeholder="Re-enter Password" name="apw_repeat" required>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+			</form>
 		</div>
-		<form action="admin_sendmes.php" method="post">
-			<input class="amessage" type="text" name="umes" rows="10" style="width: 466px;padding: 8px;font-family: 'ambleregular';border: 1px solid #CECECE;" required>
-			<input type="hidden" name="con_id" value="<?php echo $con_id; ?>">
-			<button class="sendbt" type="submit">Send</button>
-		</form>
 	</div>
+
 	<div class="clear"></div>
 </div>
 <?php
 	echo $layout_footer->output();
 ?>
 <script type="text/javascript">
-	var message_scroll = document.getElementById("message_scroll");
-	message_scroll.scrollTop = message_scroll.scrollHeight;
+    $('.confirmation').on('click', function () {
+        return confirm('Are you sure?');
+    });
 </script>

@@ -53,6 +53,11 @@
 					<a href="admin_messages.php">View Messages</a>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<a href="admin_newadmin.php">Add new Admin</a>
+				</td>
+			</tr>
 		</table>
 	</div>
 <?php
@@ -95,15 +100,15 @@
 							$time = date("H:i:s", $datetime);
 ?>
 							<br>1 day<br>
-							<input type="date" class="input_select" name="act_date" value="<?php echo $date; ?>" style="width: 141px">
+							<input type="date" class="input_select" name="act_date" value="<?php echo $date; ?>" style="width: 175px">
 							<input type="time" class="input_select" name="act_time" value="<?php echo $time; ?>">
 <?php
 						}else{
 ?>						
 		
 							<br>Between<br>
-							<input type="date" class="input_select" name="act_start" value="<?php echo $row['activity_start']; ?>" style="width: 118px"> and
-							<input type="date" class="input_select" name="act_end" value="<?php echo $row['activity_end']; ?>" style="width: 118px"> 
+							<input type="date" class="input_select" name="act_start" value="<?php echo $row['activity_start']; ?>" style="width: 175px"> and
+							<input type="date" class="input_select" name="act_end" value="<?php echo $row['activity_end']; ?>" style="width: 175px"> 
 <?php 
 						}
 ?>

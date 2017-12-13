@@ -59,6 +59,11 @@
 					<a href="admin_messages.php">View Messages</a>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<a href="admin_admanage.php">Admin management</a>
+				</td>
+			</tr>
 		</table>
 	</div>
 

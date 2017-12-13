@@ -52,6 +52,11 @@
 					<a href="admin_messages.php">View Messages</a>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<a href="admin_newadmin.php">Add new Admin</a>
+				</td>
+			</tr>
 		</table>
 	</div>
 
