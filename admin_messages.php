@@ -74,7 +74,7 @@
 				<th>Reply</th>
 			</tr>
 <?PHP
-		$q	= "SELECT a.* , b.* FROM conversation as a LEFT JOIN (SELECT c.con_id,d.mes_txt, c.time,c.mes_check FROM (SELECT con_id , MAX(mes_datetime) time,mes_check FROM message WHERE mes_from != 'admin' GROUP BY con_id) c JOIN message d ON c.con_id = d.con_id AND d.mes_datetime = c.time) b ON a.con_id = b.con_id ORDER by time DESC";
+		$q	= "SELECT a.* , b.* FROM conversation as a LEFT JOIN (SELECT c.con_id,d.mes_txt, c.time,d.mes_check FROM (SELECT con_id , MAX(mes_datetime) time,mes_check FROM message WHERE mes_from != 'admin' GROUP BY con_id) c JOIN message d ON c.con_id = d.con_id AND d.mes_datetime = c.time) b ON a.con_id = b.con_id ORDER by time DESC";
 		$result	= $mysqli->query($q);
 		if(!$result){
 			echo "Error on : $q";
@@ -89,7 +89,7 @@
 ?>					
 					<img src='img/mail_close.png' width='24' height='24'>
 <?php					
-					}else{
+				}else{
 ?>
 					<img src='img/mail_open.png' width='24' height='24'>
 <?php
