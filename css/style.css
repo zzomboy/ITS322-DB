@@ -905,12 +905,12 @@ body {
 .listmessage_tb td:nth-child(5),.listmessage_tb th:nth-child(5){
 	width: 8%;
 }
-/*.amessage{
+.amessage{
 	width: 416px;
 	padding: 8px;
 	font-family: 'ambleregular';
 	border: 1px solid #CECECE;
-*/
+}
 
 /************************* search *************************/
 .section2  li a {
