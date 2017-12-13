@@ -35,18 +35,8 @@
 		$result = $mysqli->query($q) or die("error=$q");
 		$row = $result->fetch_array();
 		$tag_id = $row['tag_id'];
-
-		/*$q = "UPDATE  tags SET visitor_count = visitor_count + $art_count where tag_id = $tag_id";
-		$q2 = "UPDATE  tags SET visitor_count = visitor_count - $art_count where tag_id = $art_oldtag";
-		$result = $mysqli->query($q2) or die("error=$q2");
-		$result = $mysqli->query($q) or die("error=$q");*/
 	}else{
 		$tag_id = $_POST['art_tag'];
-
-		/*$q = "UPDATE  tags SET visitor_count = visitor_count + $art_count where tag_id = $tag_id";
-		$q2 = "UPDATE  tags SET visitor_count = visitor_count - $art_count where tag_id = $art_oldtag";
-		$result = $mysqli->query($q2) or die("error=$q2");
-		$result = $mysqli->query($q) or die("error=$q");*/
 	}
 	
 	if (isset($_POST['pimg'])) {

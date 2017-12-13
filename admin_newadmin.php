@@ -69,15 +69,15 @@
 
 	<div class="admin_right">
 		<div class="post_form">
-			<h3>Add new Article</h3>
-			<form method="post" action="admin_save_new_art.php" enctype="multipart/form-data">
+			<h3>Add new Admin</h3>
+			<form method="post" action="admin_save_new_admin.php" enctype="multipart/form-data">
 				<table class="add_post_tb">
 					<tr>
 						<td>
 							Email :
 						</td>
 						<td>
-							<input type="text" placeholder="Enter Email" name="aemail" required>
+							<input type="email" placeholder="Enter Email" name="aemail" required>
 						</td>
 						<td></td>
 					</tr>
@@ -100,6 +100,15 @@
 							<input type="password" placeholder="Re-enter Password" name="apw_repeat" required>
 						</td>
 						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2">
+							<div class="post_form_bt">
+									<button type="submit" class="addbt" name="submit" value="Add">Add</button>
+									<button type="reset"  class="cancelbtn">Reset</button>
+							</div>
+						</td>
 					</tr>
 				</table>
 			</form>

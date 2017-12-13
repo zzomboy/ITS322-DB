@@ -26,7 +26,7 @@
 			<div class="clearfix">
 				<input type="text" placeholder="Name" name="uname" required>
 				<br>
-				<input type="text" placeholder="E-mail" name="uemail" required>
+				<input type="email" placeholder="E-mail" name="uemail" required>
 				<br>
 				<button type="submit" class="submitbt">Submit</button>	
 			</div>	

@@ -63,8 +63,8 @@
 		</table>
 	</div>
 
-	<div class="view_mes" style="width: 74%;max-width: 555px;float: left;margin-left: 10%;">
-		<div class="user_message_scroll admin_scroll" id="message_scroll" style="width: 550px;margin:0 0 10px 0 ">
+	<div class="view_mes">
+		<div class="user_message_scroll admin_scroll" id="message_scroll">
 		<?php
 			$q	= "select * from conversation as c,message as m WHERE c.con_id = m.con_id and c.con_id = $con_id order by m.mes_datetime";
 			$result	= $mysqli->query($q);
@@ -85,7 +85,7 @@
 		?>
 		</div>
 		<form action="admin_sendmes.php" method="post">
-			<input class="amessage" type="text" name="umes" rows="10" style="width: 466px;padding: 8px;font-family: 'ambleregular';border: 1px solid #CECECE;" required>
+			<input class="amessage" type="text" name="umes" rows="10" required>
 			<input type="hidden" name="con_id" value="<?php echo $con_id; ?>">
 			<button class="sendbt" type="submit">Send</button>
 		</form>

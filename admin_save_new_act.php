@@ -71,9 +71,8 @@
 		$activity_type++;
 
 		$sql = "INSERT INTO `activity` VALUES ('', '$act_name', '$text', '$pimg', '', '$act_start', '$act_end', '$act_locat', '$activity_ptime', '$activity_type', '0')";
-		echo $sql;
-		/*$mysqli->query($sql) or die("error=$sql");
+		$mysqli->query($sql) or die("error=$sql");
 		header("location: admin_Activity.php");
-		exit();*/
+		exit();
 	}
 ?>
