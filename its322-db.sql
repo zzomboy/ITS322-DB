@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 02:59 PM
+-- Generation Time: Dec 14, 2017 at 08:24 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -195,7 +195,16 @@ INSERT INTO `message` (`mes_id`, `con_id`, `mes_from`, `mes_txt`, `mes_datetime`
 (4, 3, 'user', 'hello admin', '2017-12-11 23:47:18', 1),
 (6, 3, 'admin', 'admin reply 1', '2017-12-12 00:07:50', 1),
 (8, 7, 'user', 'test01 mes1', '2017-12-12 01:03:41', 1),
-(9, 7, 'user', 'test01 mes2', '2017-12-12 01:05:15', 1);
+(9, 7, 'user', 'test01 mes2', '2017-12-12 01:05:15', 1),
+(10, 3, 'user', 'user message 1', '2017-12-13 21:31:47', 1),
+(11, 3, 'user', 'user message 2', '2017-12-13 21:32:11', 1),
+(12, 3, 'user', 'user message 3', '2017-12-13 21:34:25', 1),
+(13, 3, 'user', 'user message 4', '2017-12-13 21:54:19', 1),
+(14, 3, 'user', 'user message 5', '2017-12-13 22:01:48', 1),
+(15, 3, 'user', 'user message 6', '2017-12-13 22:04:02', 1),
+(16, 3, 'admin', 'admin reply 2', '2017-12-13 22:10:35', 1),
+(17, 3, 'user', 'user reply 1', '2017-12-13 22:10:52', 1),
+(18, 3, 'user', 'user replay 2', '2017-12-13 22:11:46', 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +307,7 @@ ALTER TABLE `conversation`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `mes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `mes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `tags`
 --
